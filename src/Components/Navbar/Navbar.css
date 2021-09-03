@@ -1,0 +1,7 @@
+.navigation-bar {
+  width: 70%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
