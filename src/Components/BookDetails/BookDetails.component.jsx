@@ -1,12 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
+
+import { authHeader } from "../../Utils/authHeader";
 
 import CardMedia from "@material-ui/core/CardMedia";
 import { Button } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 import "./BookDetails.css";
+import { useParams } from "react-router";
 function BookDetails({ props }) {
+  const [wishlisted, setWishlisted] = useState(false);
+  let { slug } = useParams();
+
+  const wishlist = (e) => {
+    e.preventDefault();
+    let user = JSON.parse(localStorage.getItem("user"));
+    let libraId = slug;
+    const reqBody = { libraId };
+    // let libraId = { slug };
+    // console.log("wishlistsending", wishlistParams);
+    if (user == null) return;
+    if (user.token !== null) {
+      console.log("this is a message when you log in", user.token);
+      fetch("http://localhost:39068/api/User/Wishlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${"Bearer " + user.token}`,
+          // Authorization: authHeader(),
+        },
+        body: JSON.stringify(reqBody),
+      })
+        .then((res) => console.log(res))
+        .then(setWishlisted(true)).catch = (err) => {
+        console.log(err);
+      };
+    }
+  };
+  // wishlist();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("user");
+  };
   const { imageName, titulli, autori, cmimi, nrFaqes, stock } = props;
   const useStyles = makeStyles({
     root: {
@@ -16,11 +52,11 @@ function BookDetails({ props }) {
       // border: "none",
       // marginLeft: 20,
       // marginRight: 20,
-      // height: "60vh",
+      height: 500,
     },
     media: {
-      height: 400,
-      width: 260,
+      height: 500,
+      width: 360,
       // maxWidth: "100%",
       // height: "auto",
       // objectFit: "contain",
@@ -28,6 +64,7 @@ function BookDetails({ props }) {
     main: {
       display: "flex",
       justifyContent: "space-evenly",
+      marginTop: 100,
     },
     wrapper: {
       height: 505,
@@ -72,8 +109,8 @@ function BookDetails({ props }) {
           <Button>Add to basket</Button>
         </div>
         <div className="bookButtons">
-          <Button>TEXT</Button>
-          <Button>WISHLIST</Button>
+          <Button onClick={handleLogout}>TEXT</Button>
+          <Button onClick={wishlist}>WISHLIST</Button>
         </div>
       </div>
     </div>
