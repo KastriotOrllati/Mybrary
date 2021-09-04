@@ -13,7 +13,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const register = { email, password, username };
-    fetch("http://localhost:39068/api/User/login", {
+    fetch("http://localhost:39068/api/User/Register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(register),
