@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./BookList.css";
 import { authHeader } from "../../Utils/authHeader";
+import "./BookList.css";
 
 import BookCard from "../BookCard/BookCard.component";
 

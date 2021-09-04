@@ -1,7 +1,56 @@
-.navigation-bar {
-  width: 70%;
+.nav-bar {
+  margin-bottom: 18px;
+  height: 10rem;
+
+  transform: translateY(-10%);
+}
+
+.admin-page {
   display: flex;
-  flex-flow: row wrap;
+  transform: translateY(-0%);
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: black;
+}
+
+.link-list {
+  display: flex;
+  width: 50%;
+  margin-top: 0;
+  justify-content: flex-start;
+}
+
+.signin-div {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2%;
+}
+
+.logo {
+  text-decoration: none;
+  transform: translateY(-15%);
+  font-size: 3rem;
+}
+
+.nav-bar a:hover {
+  text-decoration: underline;
+}
+.second-bar {
+  display: flex;
+  width: 100%;
+
   align-items: center;
-  justify-content: space-around;
+}
+.second-links {
+  width: 50%;
+  font-size: 0.8rem;
+}
+.search-div {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3%;
 }
