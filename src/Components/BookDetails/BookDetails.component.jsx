@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
-
-import { authHeader } from "../../Utils/authHeader";
-
 import CardMedia from "@material-ui/core/CardMedia";
 import { Button } from "@material-ui/core";
-
 import { makeStyles } from "@material-ui/core/styles";
 import "./BookDetails.css";
 import { useParams } from "react-router";
+
 function BookDetails({ props }) {
   const [wishlisted, setWishlisted] = useState(false);
   let { slug } = useParams();
@@ -39,11 +36,13 @@ function BookDetails({ props }) {
     }
   };
   // wishlist();
+  console.log(wishlisted);
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem("user");
   };
-  const { imageName, titulli, autori, cmimi, nrFaqes, stock } = props;
+  const { imageName, titulli, autori } = props;
+  // cmimi, nrFaqes, stock;
   const useStyles = makeStyles({
     root: {
       // display: "flex",

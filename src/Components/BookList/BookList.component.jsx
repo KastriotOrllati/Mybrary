@@ -15,21 +15,19 @@ function BookList() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setBooks(data);
       })
       .catch((err) => console.log(err));
-    console.log("state", books);
-  }, []);
+  }, [setBooks]);
 
-  const handleDelete = (id) => {
-    fetch(`http://localhost:39068/api/Libra/${id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    });
+  // const handleDelete = (id) => {
+  //   fetch(`http://localhost:39068/api/Libra/${id}`, {
+  //     method: "DELETE",
+  //     headers: { "Content-Type": "application/json" },
+  //   });
 
-    setBooks(books.filter((event) => event.id !== id));
-  };
+  //   setBooks(books.filter((event) => event.id !== id));
+  // };
 
   // const everyBook = (id) => {
   //   fetch(`http://localhost:39068/api/Libra/${id}`);

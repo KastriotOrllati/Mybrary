@@ -1,0 +1,18 @@
+.createBook {
+  display: flex;
+  flex-flow: column wrap;
+  justify-self: center;
+  align-items: center;
+}
+
+.formStyle {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+
+  width: 500px;
+}
+
+.input {
+  margin: 10px 0;
+}

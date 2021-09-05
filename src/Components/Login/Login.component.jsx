@@ -24,10 +24,10 @@ function Login() {
       });
   };
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("user");
-  };
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   localStorage.removeItem("user");
+  // };
 
   return (
     <div className="login">
