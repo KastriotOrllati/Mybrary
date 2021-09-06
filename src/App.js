@@ -15,7 +15,7 @@ function App() {
           <Route path="/signin">
             <SignRegister />
           </Route>
-          <Route exact path="/admin">
+          <Route path="/admin/">
             <AdminPage />
           </Route>
           <Route path="/">

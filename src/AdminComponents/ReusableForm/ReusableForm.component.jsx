@@ -3,9 +3,11 @@ import { Button, TextField } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import { useParams } from "react-router";
 
 function ReusableForm(props) {
-  //   const editBook = props;
+  const editBook = props.editBook;
+  const { slug } = useParams();
   const initialFieldsValue = props.initialFieldsValue;
   const defaultImageSrc = props.defaultImageSrc;
   const [values, setValues] = useState(initialFieldsValue);
@@ -13,33 +15,25 @@ function ReusableForm(props) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:39068/api/Categories")
+    const ac = new AbortController();
+    fetch("http://localhost:39068/api/Categories", { signal: ac.signal })
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.log(err));
+
+    return () => ac.abort();
   }, [setCategories]);
 
-  // useEffect(() => {
-  //     fetch()
-  // })
+  useEffect(() => {
+    // const ac = new AbortController();
+    console.log("effect for setvalues in reusable form");
+    setValues(initialFieldsValue);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    // return () => ac.abort();
+  }, [initialFieldsValue]);
+
+  const handleAddSubmit = (e) => {
     if (validate()) {
-      const formData = new FormData();
-      formData.append("titulli", values.titulli);
-      formData.append("autori", values.autori);
-      formData.append("ISBN", values.ISBN);
-      formData.append("cmimi", values.cmimi);
-      formData.append("nrFaqes", values.nrFaqes);
-      formData.append("stock", values.stock);
-      formData.append("imageName", values.imageName);
-      formData.append("imageFile", values.imageFile);
-      formData.append("category", values.category);
-      // for (var pair of formData.entries()) {
-      //   console.log(pair);
-      // }
-
       fetch("http://localhost:39068/api/Libra", {
         method: "POST",
         body: formData,
@@ -49,6 +43,21 @@ function ReusableForm(props) {
         .catch((err) => console.log(err));
     }
   };
+
+  const formData = new FormData();
+  formData.append("titulli", values.titulli);
+  formData.append("autori", values.autori);
+  formData.append("ISBN", values.ISBN);
+  formData.append("cmimi", values.cmimi);
+  formData.append("nrFaqes", values.nrFaqes);
+  formData.append("stock", values.stock);
+  formData.append("imageName", values.imageName);
+  formData.append("imageFile", values.imageFile);
+  formData.append("category", values.category);
+  // for (var pair of formData.entries()) {
+  //   console.log(pair);
+  // }
+
   const resetForm = () => {
     setValues(initialFieldsValue);
     document.getElementById("image-uploader").value = null;
@@ -93,16 +102,37 @@ function ReusableForm(props) {
       });
     }
   };
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+    const editFunc = await fetch(`http://localhost:39068/api/Libra/${slug}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: formData,
+    });
+    const editRes = await editFunc.json();
+    console.log(editRes);
+    console.log("this is edit");
+  };
+
+  console.log(slug);
 
   return (
     <div>
       <form
         className="formStyle"
-        onSubmit={handleSubmit}
+        onSubmit={editBook ? handleEditSubmit : handleAddSubmit}
         autoComplete="off"
         noValidate
       >
-        <img src={values.imageSrc} alt={values.imageName} />
+        <img
+          src={
+            values.imageSrc ||
+            `http://localhost:39068/Images/${values.imageName}`
+          }
+          alt={values.imageName}
+        />
         <input
           type="file"
           accept="image/*"
@@ -113,7 +143,7 @@ function ReusableForm(props) {
           label="Titulli"
           inputProps={{ "aria-label": "name" }}
           className="input"
-          value={values.titulli}
+          value={values.titulli || ""}
           name="titulli"
           onChange={handleInputChange}
           id="standard-basic"
@@ -122,7 +152,7 @@ function ReusableForm(props) {
           label="Autori"
           inputProps={{ "aria-label": "name" }}
           className="input"
-          value={values.autori}
+          value={values.autori || ""}
           name="autori"
           onChange={handleInputChange}
           id="standard-basic"
@@ -131,7 +161,7 @@ function ReusableForm(props) {
           <InputLabel htmlFor="category">Category</InputLabel>
           <Select
             native
-            value={values.category}
+            value={values.category || ""}
             onChange={handleInputChange}
             inputProps={{
               name: "category",
@@ -151,7 +181,7 @@ function ReusableForm(props) {
           label="Cmimi"
           inputProps={{ "aria-label": "name" }}
           className="input"
-          value={values.cmimi}
+          value={values.cmimi || ""}
           name="cmimi"
           onChange={handleInputChange}
           id="standard-basic"
@@ -160,7 +190,7 @@ function ReusableForm(props) {
           label="ISBN"
           inputProps={{ "aria-label": "name" }}
           className="input"
-          value={values.ISBN}
+          value={values.ISBN || ""}
           name="ISBN"
           onChange={handleInputChange}
           id="standard-basic"
@@ -169,7 +199,7 @@ function ReusableForm(props) {
           label="Nr i faqeve"
           inputProps={{ "aria-label": "name" }}
           className="input"
-          value={values.nrFaqes}
+          value={values.nrFaqes || ""}
           name="nrFaqes"
           onChange={handleInputChange}
           id="standard-basic"
@@ -178,7 +208,7 @@ function ReusableForm(props) {
           label="Stock"
           inputProps={{ "aria-label": "name" }}
           className="input"
-          value={values.stock}
+          value={values.stock || ""}
           name="stock"
           onChange={handleInputChange}
           id="standard-basic"

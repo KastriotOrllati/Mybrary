@@ -1,0 +1,6 @@
+.editBook {
+  display: flex;
+  flex-flow: column wrap;
+  justify-self: center;
+  align-items: center;
+}
