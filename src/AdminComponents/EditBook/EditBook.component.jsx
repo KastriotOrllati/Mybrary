@@ -24,7 +24,6 @@ function EditBook() {
       <ReusableForm
         initialFieldsValue={initialFieldsValue}
         defaultImageSrc={initialFieldsValue.imageName}
-        editBook={true}
       />
     </div>
   );

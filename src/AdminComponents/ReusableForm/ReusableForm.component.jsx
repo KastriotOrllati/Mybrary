@@ -6,10 +6,9 @@ import Select from "@material-ui/core/Select";
 import { useParams } from "react-router";
 
 function ReusableForm(props) {
-  const editBook = props.editBook;
-  const { slug } = useParams();
   const initialFieldsValue = props.initialFieldsValue;
   const defaultImageSrc = props.defaultImageSrc;
+  const { slug } = useParams();
   const [values, setValues] = useState(initialFieldsValue);
   const [, setErrors] = useState({});
   const [categories, setCategories] = useState([]);
@@ -26,38 +25,47 @@ function ReusableForm(props) {
 
   useEffect(() => {
     // const ac = new AbortController();
-    console.log("effect for setvalues in reusable form");
+
     setValues(initialFieldsValue);
 
     // return () => ac.abort();
   }, [initialFieldsValue]);
 
-  const handleAddSubmit = (e) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (validate()) {
-      fetch("http://localhost:39068/api/Libra", {
-        method: "POST",
-        body: formData,
-      })
-        .then((res) => console.log(res))
-        .then(resetForm())
-        .catch((err) => console.log(err));
+      const formData = new FormData();
+      formData.append("titulli", values.titulli);
+      formData.append("autori", values.autori);
+      formData.append("ISBN", values.ISBN);
+      formData.append("cmimi", values.cmimi);
+      formData.append("nrFaqes", values.nrFaqes);
+      formData.append("stock", values.stock);
+      formData.append("imageName", values.imageName);
+      formData.append("imageFile", values.imageFile);
+      formData.append("category", values.category);
+      formData.append("Id", slug);
+      // for (var pair of formData.entries()) {
+      //   console.log(pair);
+      // }
+
+      if (values.id != null) {
+        fetch(`http://localhost:39068/api/Libra/${slug}`, {
+          body: formData,
+          method: "PUT",
+        }).catch((err) => console.log(err));
+      } else {
+        formData.delete("Id");
+        fetch("http://localhost:39068/api/Libra", {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => console.log(res))
+          .then(resetForm())
+          .catch((err) => console.log(err));
+      }
     }
   };
-
-  const formData = new FormData();
-  formData.append("titulli", values.titulli);
-  formData.append("autori", values.autori);
-  formData.append("ISBN", values.ISBN);
-  formData.append("cmimi", values.cmimi);
-  formData.append("nrFaqes", values.nrFaqes);
-  formData.append("stock", values.stock);
-  formData.append("imageName", values.imageName);
-  formData.append("imageFile", values.imageFile);
-  formData.append("category", values.category);
-  // for (var pair of formData.entries()) {
-  //   console.log(pair);
-  // }
-
   const resetForm = () => {
     setValues(initialFieldsValue);
     document.getElementById("image-uploader").value = null;
@@ -102,27 +110,17 @@ function ReusableForm(props) {
       });
     }
   };
-  const handleEditSubmit = async (e) => {
-    e.preventDefault();
-    const editFunc = await fetch(`http://localhost:39068/api/Libra/${slug}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: formData,
-    });
-    const editRes = await editFunc.json();
-    console.log(editRes);
-    console.log("this is edit");
-  };
 
-  console.log(slug);
-
+  // const handleEdit = (e, id) => {
+  //   e.preventDefault();
+  //   const editFun = fetch(`http://localhost:39068/api/Libra/${slug}`);
+  //   console.log("this is edit");
+  // };
   return (
     <div>
       <form
         className="formStyle"
-        onSubmit={editBook ? handleEditSubmit : handleAddSubmit}
+        onSubmit={handleSubmit}
         autoComplete="off"
         noValidate
       >
@@ -170,7 +168,7 @@ function ReusableForm(props) {
           >
             <option aria-label="None" value="" />
             {categories.map((category) => (
-              <option value={category.categories} key={category.id}>
+              <option value={category.categories || ""} key={category.id}>
                 {category.categories}
               </option>
             ))}
@@ -190,7 +188,7 @@ function ReusableForm(props) {
           label="ISBN"
           inputProps={{ "aria-label": "name" }}
           className="input"
-          value={values.ISBN || ""}
+          value={values.isbn || ""}
           name="ISBN"
           onChange={handleInputChange}
           id="standard-basic"
