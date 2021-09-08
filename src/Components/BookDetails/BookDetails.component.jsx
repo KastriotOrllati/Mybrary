@@ -4,6 +4,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "./BookDetails.css";
+import Rating from "@material-ui/lab/Rating";
 import { useParams } from "react-router";
 
 function BookDetails({ props }) {
@@ -69,7 +70,6 @@ function BookDetails({ props }) {
       height: 505,
       width: 400,
       display: "flex",
-
       justifyContent: "center",
     },
   });
@@ -92,7 +92,10 @@ function BookDetails({ props }) {
         <div className="mainInfo">
           <h2>{titulli}</h2>
           <h3>{autori} (author) </h3>
-          <div>
+          <div className="rating-div">
+            <span>
+              <Rating />
+            </span>
             <span>RATING </span>
             <span> Reviews</span>
             <span> SIGN IN TO WRITE A REVIEW</span>
