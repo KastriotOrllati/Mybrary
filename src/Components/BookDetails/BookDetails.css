@@ -9,13 +9,18 @@
 
   align-items: flex-start;
 }
-
+.rating-div {
+  width: 100%;
+  font-size: 13px;
+}
+.rating-div span {
+  padding-right: 20px;
+}
 .extraInfo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 40%;
-
   border: solid 1px black;
 }
 .bookButtons {
