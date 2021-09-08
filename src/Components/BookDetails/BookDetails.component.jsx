@@ -69,7 +69,6 @@ function BookDetails({ props }) {
       height: 505,
       width: 400,
       display: "flex",
-
       justifyContent: "center",
     },
   });

@@ -4,10 +4,66 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <div className="navigation-bar">
-      <Link to="/">Home</Link>
-      <Link to="/signin">Sign In/Register</Link>
-      <Link to="/admin">Admin</Link>
+    <div className="nav-bar">
+      <div className="admin-page">
+        <div className="link-list">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="signin-div">
+          <ul>
+            <li>
+              <Link to="/signin">Sign in</Link>
+            </li>
+            <li>
+              <Link to="/signin">Register</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="logo">
+        <Link href="#">WaterStone</Link>
+      </div>
+
+      <div className="second-bar">
+        <div className="second-links">
+          <ul>
+            <li>
+              <Link to="/">NEW</Link>
+            </li>
+            <li>
+              <Link to="/">NEW</Link>
+            </li>
+            <li>
+              <Link to="/">NEW</Link>
+            </li>
+            <li>
+              <Link to="/">NEW</Link>
+            </li>
+            <li>
+              <Link to="/">NEW</Link>
+            </li>
+            <li>
+              <Link to="/">NEW</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="search-div">
+          <input type="text" placeholder="Title,author,keyword" />
+        </div>
+      </div>
     </div>
   );
 };
