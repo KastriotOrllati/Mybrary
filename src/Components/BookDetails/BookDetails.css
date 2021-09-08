@@ -6,27 +6,70 @@
 .mainInfo {
   display: flex;
   flex-flow: column wrap;
-
   align-items: flex-start;
 }
+
+.mainInfo h2 {
+  margin-bottom: 0px;
+}
+
 .rating-div {
+  display: flex;
   width: 100%;
   font-size: 13px;
+  margin-top: 5px;
+  align-items: center;
 }
-.rating-div span {
-  padding-right: 20px;
+.rating {
+  margin-top: 15px;
+}
+.save-stock {
+  display: flex;
+  font-size: 15px;
+  justify-content: space-start;
+  font-size: 20px;
+  color: rgb(0, 128, 107);
+  height: 40%;
+}
+.save-stock span {
+  padding-right: 30px;
+}
+.nr-kategoria {
+  display: flex;
+  justify-content: space-between;
+  height: 50%;
+}
+.available {
+  display: flex;
+  justify-content: flex-start;
+}
+.nr-cat-div {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.qmimi {
+  display: flex;
+  justify-content: flex-end;
 }
 .extraInfo {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  height: 40%;
-  border: solid 1px black;
+  padding: 2%;
+  height: 25%;
+  border: solid 1px rgb(185, 185, 185);
 }
 .bookButtons {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  border: solid 1px black;
-  height: 60px auto;
+  border-left: rgb(185, 185, 185) 1px solid;
+  border-right: 1px solid rgb(185, 185, 185);
+  border-bottom: 1px solid rgb(185, 185, 185);
+  height: 60px;
+  align-items: center;
+}
+.bookButtons button {
+  background-color: grey;
 }
