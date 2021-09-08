@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
-import { Button } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "./BookDetails.css";
 import Rating from "@material-ui/lab/Rating";
@@ -42,8 +42,10 @@ function BookDetails({ props }) {
     e.preventDefault();
     localStorage.removeItem("user");
   };
-  const { imageName, titulli, autori } = props;
+  const { imageName, titulli, autori, nrFaqes, category, cmimi, stock, isbn } =
+    props;
   // cmimi, nrFaqes, stock;
+
   const useStyles = makeStyles({
     root: {
       // display: "flex",
@@ -65,6 +67,8 @@ function BookDetails({ props }) {
       display: "flex",
       justifyContent: "space-evenly",
       marginTop: 100,
+      height: "100%",
+      marginBottom: "50px",
     },
     wrapper: {
       height: 505,
@@ -90,24 +94,43 @@ function BookDetails({ props }) {
       </div>
       <div className="bookInfo">
         <div className="mainInfo">
-          <h2>{titulli}</h2>
+          <h2>Titulli: {titulli}</h2>
           <h3>{autori} (author) </h3>
           <div className="rating-div">
-            <span>
-              <Rating />
+            <span className="rating">
+              <Box component="fieldset" mb={1} borderColor="transparent">
+                <Rating
+                  name="size-small"
+                  size="small"
+                  name="read-only"
+                  value={4}
+                  readOnly
+                />
+              </Box>
             </span>
-            <span>RATING </span>
-            <span> Reviews</span>
-            <span> SIGN IN TO WRITE A REVIEW</span>
+
+            <span> Sign in to review</span>
           </div>
         </div>
         <div className="extraInfo">
-          <span>NR I FAQEVE</span>
-          <span>kategoria</span>
-          <span>QMIMI</span>
+          <div className="nr-kategoria">
+            <div className="nr-cat-div">
+              <span>Nr faqev: {nrFaqes}</span>
+              <span>Category: {category}</span>
+            </div>
+            <div className="qmimi">
+              <span>Cmimi: {cmimi}</span>
+            </div>
+          </div>
+          <div className="save-stock">
+            <span>Save $1.50</span>
+            <span>{stock} in stock</span>
+          </div>
+          <span className="available">ISBN: {isbn}</span>
         </div>
+
         <div className="bookButtons">
-          <Button>Quantity</Button>
+          <span>Quantity</span>
           <Button>Add to basket</Button>
         </div>
         <div className="bookButtons">
