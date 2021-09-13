@@ -1,8 +1,8 @@
 .nav-bar {
   margin-bottom: 18px;
   height: 10rem;
-
   transform: translateY(-10%);
+  margin-bottom: 80px;
 }
 
 .admin-page {

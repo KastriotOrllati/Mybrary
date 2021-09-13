@@ -24,8 +24,6 @@ const initialFieldsValue = {
 function CreateBook() {
   return (
     <div className="createBook">
-      <h1>hello from create</h1>
-
       <ReusableForm
         initialFieldsValue={initialFieldsValue}
         defaultImageSrc={defaultImageSrc}
