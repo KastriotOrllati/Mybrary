@@ -69,7 +69,67 @@
   border-bottom: 1px solid rgb(185, 185, 185);
   height: 60px;
   align-items: center;
+  max-width: 100%;
+  padding: 2px 5px;
 }
 .bookButtons button {
-  background-color: grey;
+  color: white;
+  background-color: #c24d2c;
+}
+
+.bookButtons button:hover {
+  color: black;
+  background-color: #ffc93c;
+}
+
+/* Review styling */
+.review-span {
+  margin-bottom: 0;
+}
+
+.reviews-container {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  border-top: 1px solid rgb(209, 209, 209);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  padding-top: 20px;
+  text-align: left;
+}
+
+.review {
+  max-width: 30%;
+  padding: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid rgb(194, 179, 179);
+}
+
+.review h4 {
+  font-size: 1.5rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+@media (max-width: 660px) {
+  .bookInfo {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 746px) {
+  .reviews-container {
+    border-top: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .review {
+    max-width: 100%;
+  }
 }

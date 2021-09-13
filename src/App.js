@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
         <Switch>
           <Route path="/signin">
             <SignRegister />
@@ -30,6 +29,6 @@ function App() {
 export default App;
 
 // <Route path="/signin">
-
+// <Navbar />;
 //   <SignInRegister />
 // </Route>

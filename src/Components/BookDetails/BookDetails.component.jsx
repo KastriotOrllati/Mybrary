@@ -68,7 +68,10 @@ function BookDetails({ props }) {
       justifyContent: "space-evenly",
       marginTop: 100,
       height: "100%",
-      marginBottom: "50px",
+      marginBottom: "70px",
+      "@media (max-width: 665px)": {
+        flexWrap: "wrap",
+      },
     },
     wrapper: {
       height: 505,
@@ -80,69 +83,105 @@ function BookDetails({ props }) {
   console.log(props);
   const classes = useStyles();
   return (
-    <div className={classes.main}>
-      <div className={classes.wrapper}>
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            component="img"
-            alt="Contemplative Reptile"
-            image={`http://localhost:39068/Images/${imageName}`}
-            title="Contemplative Reptile"
-          />
-        </Card>
-      </div>
-      <div className="bookInfo">
-        <div className="mainInfo">
-          <h2>Titulli: {titulli}</h2>
-          <h3>{autori} (author) </h3>
-          <div className="rating-div">
-            <span className="rating">
-              <Box component="fieldset" mb={1} borderColor="transparent">
-                <Rating
-                  name="size-small"
-                  size="small"
-                  name="read-only"
-                  value={4}
-                  readOnly
-                />
-              </Box>
-            </span>
-
-            <span> Sign in to review</span>
-          </div>
+    <>
+      <div className={classes.main}>
+        <div className={classes.wrapper}>
+          <Card className={classes.root}>
+            <CardMedia
+              className={classes.media}
+              component="img"
+              alt="Contemplative Reptile"
+              image={`http://localhost:39068/Images/${imageName}`}
+              title="Contemplative Reptile"
+            />
+          </Card>
         </div>
-        <div className="extraInfo">
-          <div className="nr-kategoria">
-            <div className="nr-cat-div">
-              <span>Nr faqev: {nrFaqes}</span>
-              <span>Category: {category}</span>
-            </div>
-            <div className="qmimi">
-              <span>Cmimi: {cmimi}</span>
+        <div className="bookInfo">
+          <div className="mainInfo">
+            <h2>Titulli: {titulli}</h2>
+            <h3>{autori} (author) </h3>
+            <div className="rating-div">
+              <span className="rating">
+                <Box component="fieldset" mb={1} borderColor="transparent">
+                  <Rating
+                    name="size-small"
+                    size="small"
+                    name="read-only"
+                    value={4}
+                    readOnly
+                  />
+                </Box>
+              </span>
+
+              <span> Sign in to review</span>
             </div>
           </div>
-          <div className="save-stock">
-            <span>Save $1.50</span>
-            <span>{stock} in stock</span>
+          <div className="extraInfo">
+            <div className="nr-kategoria">
+              <div className="nr-cat-div">
+                <span>Nr faqev: {nrFaqes}</span>
+                <span>Category: {category}</span>
+              </div>
+              <div className="qmimi">
+                <span>Cmimi: {cmimi}</span>
+              </div>
+            </div>
+            <div className="save-stock">
+              <span>Save $1.50</span>
+              <span>{stock} in stock</span>
+            </div>
+            <span className="available">ISBN: {isbn}</span>
           </div>
-          <span className="available">ISBN: {isbn}</span>
-        </div>
 
-        <div className="bookButtons">
-          <span>Quantity</span>
-          <Button>Add to basket</Button>
-        </div>
-        <div className="bookButtons">
-          <Button onClick={handleLogout}>TEXT</Button>
-          <Button onClick={wishlist}>WISHLIST</Button>
+          <div className="bookButtons">
+            <span>Quantity</span>
+            <Button>Add to basket</Button>
+          </div>
+          <div className="bookButtons">
+            <Button className="button" onClick={handleLogout}>
+              TEXT
+            </Button>
+            <Button className="button" onClick={wishlist}>
+              WISHLIST
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+      <span className="review-span">
+        <h3>Reviews</h3>
+      </span>
+      <section className="reviews-container">
+        <div className="review">
+          <h4>Name of the reviewer</h4>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro
+            suscipit consequuntur ab sit esse placeat, voluptatem earum fugiat
+            sed quam!
+          </p>
+        </div>
+        <div className="review">
+          <h4>Name of the reviewer</h4>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro
+            suscipit consequuntur ab sit esse placeat, voluptatem earum fugiat
+            sed quam!
+          </p>
+        </div>
+        <div className="review">
+          <h4>Name of the reviewer</h4>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro
+            suscipit consequuntur ab sit esse placeat, voluptatem earum fugiat
+            sed quam!
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
 
 export default BookDetails;
+
 // <CardContent>
 //   <Typography gutterBottom variant="h6" component="h3">
 //     {titulli}

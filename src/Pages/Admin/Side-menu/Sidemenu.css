@@ -1,0 +1,47 @@
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 320px;
+  height: 100%;
+  background-color: #253053;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  max-height: 500px;
+  height: 100%;
+  margin-top: 25px;
+  font-size: 1.4rem;
+}
+.menu-container h1 {
+  align-self: flex-start;
+  padding-left: 18px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.links a {
+  padding: 10px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: rgb(224, 255, 255);
+}
+.links a:hover {
+  text-decoration: underline;
+  color: rgb(187, 185, 185);
+}
+
+.links:not(:last-child) {
+  border-bottom: 1px solid grey;
+}
