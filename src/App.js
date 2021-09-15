@@ -18,6 +18,7 @@ function App() {
             <AdminPage />
           </Route>
           <Route path="/">
+            <Navbar />
             <Homepage />
           </Route>
         </Switch>
@@ -29,6 +30,5 @@ function App() {
 export default App;
 
 // <Route path="/signin">
-// <Navbar />;
 //   <SignInRegister />
 // </Route>
