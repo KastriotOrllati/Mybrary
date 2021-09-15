@@ -41,7 +41,6 @@
 .second-bar {
   display: flex;
   width: 100%;
-
   align-items: center;
 }
 .second-links {
@@ -53,4 +52,15 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 3%;
+}
+@media screen and (max-width: 800px) {
+  .link-list {
+    display: none;
+  }
+  .signin-div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2%;
+  }
 }

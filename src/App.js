@@ -19,6 +19,7 @@ function App() {
           </Route>
           <Route path="/">
             <Navbar />
+
             <Homepage />
           </Route>
         </Switch>
