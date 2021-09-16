@@ -35,7 +35,6 @@ function BookList() {
 
   return (
     <div>
-      <h1>All list of events</h1>
       <ul>
         {books.map((book) => (
           <Link to={`/book/` + book.id} key={book.id}>

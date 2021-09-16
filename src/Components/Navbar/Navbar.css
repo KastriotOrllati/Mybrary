@@ -1,5 +1,4 @@
 .nav-bar {
-  margin-bottom: 18px;
   height: 10rem;
   transform: translateY(-10%);
   margin-bottom: 80px;
@@ -8,6 +7,8 @@
 .admin-page {
   display: flex;
   transform: translateY(-0%);
+  background-color: rgb(241, 240, 233);
+  margin-bottom: 20px;
 }
 
 .nav-bar a {
@@ -15,24 +16,34 @@
   color: black;
 }
 
+.menu-icon {
+  display: none;
+}
+
 .link-list {
   display: flex;
-  width: 50%;
-  margin-top: 0;
+  width: 70%;
   justify-content: flex-start;
+  font-size: 1.2rem;
 }
 
 .signin-div {
-  width: 50%;
+  width: 30%;
   display: flex;
   justify-content: flex-end;
   padding-right: 2%;
+  font-size: 1.2rem;
 }
 
 .logo {
   text-decoration: none;
   transform: translateY(-15%);
   font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.logo a {
+  color: rgb(102, 59, 59);
 }
 
 .nav-bar a:hover {
@@ -48,19 +59,51 @@
   font-size: 0.8rem;
 }
 .search-div {
-  width: 50%;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  margin-right: 3%;
+  justify-content: flex-start;
+  margin-left: 4%;
 }
+
+.search-div input {
+  padding: 1rem;
+}
+
 @media screen and (max-width: 800px) {
+  .link-list {
+    font-size: 1.1rem;
+    width: 70%;
+    transform: translateX(-50px);
+
+    justify-content: flex-start;
+  }
+  .signin-div {
+    font-size: 1rem;
+
+    width: 36%;
+    display: flex;
+    transform: translateY(5px);
+    padding-right: 2%;
+  }
+  .search-div {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 650px) {
   .link-list {
     display: none;
   }
+
   .signin-div {
-    width: 100%;
+    transform: translateY(5px);
+    width: 90%;
+  }
+  .menu-icon {
     display: flex;
-    justify-content: flex-end;
-    padding-right: 2%;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    font-size: 1.2rem;
   }
 }
