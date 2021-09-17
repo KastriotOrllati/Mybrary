@@ -25,12 +25,40 @@ const Navbar = () => {
 
   const [openMenu, setOpenMenu] = useState(false);
 
-  const handleClick = () => {
+  const [width, setWidth] = useState(651);
+
+  let handleClick = () => {
     setOpenMenu(!openMenu);
   };
 
+  useEffect(() => {
+    const updateWindowDimensions = () => {
+      const newWidth = window.innerWidth;
+      setWidth(newWidth);
+      console.log("updating width");
+    };
+
+    window.addEventListener("resize", updateWindowDimensions);
+
+    return () => window.removeEventListener("resize", updateWindowDimensions);
+  }, []);
+  console.log("width" + width);
+
+  useEffect(() => {
+    if (width > 650) {
+      handleClick = () => {
+        setOpenMenu(false);
+      };
+    } else {
+      handleClick = () => {
+        setOpenMenu(!openMenu);
+      };
+    }
+  }, [width]);
+
+  console.log(openMenu);
   return (
-    <div className="nav-bar">
+    <div className={openMenu && width < 650 ? "nav-bar no-scroll" : "nav-bar"}>
       <div className="admin-page">
         <span className="menu-icon">
           <IconButton onClick={handleClick}>

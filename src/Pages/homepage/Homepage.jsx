@@ -1,4 +1,5 @@
 import React from "react";
+import "../../App.css";
 
 import { Route, Switch } from "react-router-dom";
 
@@ -7,7 +8,7 @@ import BookList from "../../Components/BookList/BookList.component";
 
 function Homepage(props) {
   return (
-    <div>
+    <div className="homepage">
       <Route exact path="/">
         <BookList />
       </Route>

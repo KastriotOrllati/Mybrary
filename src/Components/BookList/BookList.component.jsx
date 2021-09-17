@@ -34,12 +34,15 @@ function BookList() {
   // };
 
   return (
-    <div>
+    <div className="booklist-conatiner">
+      <h1>Category</h1>
       <ul>
         {books.map((book) => (
-          <Link to={`/book/` + book.id} key={book.id}>
-            <BookCard book={book} key={book.id} />
-          </Link>
+          <li>
+            <Link to={`/book/` + book.id} key={book.id}>
+              <BookCard book={book} key={book.id} />
+            </Link>
+          </li>
         ))}
       </ul>
     </div>
