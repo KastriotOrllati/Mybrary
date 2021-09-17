@@ -1,14 +1,19 @@
 ul {
   list-style-type: none;
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-}
-
-li {
-  padding: 10px;
+  overflow: hidden;
 }
 
 .link {
   text-decoration: none;
   color: black;
+}
+
+.booklist-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -8,6 +8,11 @@
   display: none;
 }
 
+.no-scroll {
+  position: fixed;
+  width: 100%;
+}
+
 .admin-page {
   display: flex;
   background-color: rgb(241, 240, 233);
@@ -97,10 +102,9 @@
 @media screen and (max-width: 650px) {
   .admin-page {
     position: relative;
+    overflow: hidden;
   }
-  .logo {
-    position: relative;
-  }
+
   .nav-item {
     width: 100%;
     display: flex;
@@ -114,22 +118,30 @@
     flex-direction: column;
     width: 100%;
     transform: translateX(0);
+    overflow-y: hidden;
     height: 93vh;
-    position: absolute;
+    position: fixed;
 
     top: 70px;
     left: -100%;
     justify-content: flex-start;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
+    padding: 0;
   }
 
   .link-list.active {
     background: #1a1818;
     left: 0;
     opacity: 1;
-    position: absolute;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     z-index: 1000;
+    margin: 0;
+    height: 93vh;
+    overflow: hidden;
+  }
+
+  .nav-item a {
+    color: azure;
   }
 
   .nav-links {
@@ -147,6 +159,7 @@
     width: 95%;
   }
   .menu-icon {
+    padding-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
