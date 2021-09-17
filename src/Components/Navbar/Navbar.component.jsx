@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles, TextField } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
@@ -25,7 +25,9 @@ const Navbar = () => {
 
   const [openMenu, setOpenMenu] = useState(false);
 
-  const handleClick = () => setOpenMenu(!openMenu);
+  const handleClick = () => {
+    setOpenMenu(!openMenu);
+  };
 
   return (
     <div className="nav-bar">
@@ -35,20 +37,27 @@ const Navbar = () => {
             {openMenu ? <CloseIcon /> : <MenuIcon />}
           </IconButton>
         </span>
-        <div className="link-list">
+        <div className={openMenu ? "link-list active" : "link-list"}>
           <ul>
-            <li></li>
-            <li>
-              <Link to="/ ">Home</Link>
+            <li className="nav-item">
+              <Link className="nav-links" to="/ " onClick={handleClick}>
+                Home
+              </Link>
             </li>
-            <li>
-              <Link to="/">About</Link>
+            <li className="nav-item">
+              <Link className="nav-links" to="/" onClick={handleClick}>
+                About
+              </Link>
             </li>
-            <li>
-              <Link to="/">Contact us</Link>
+            <li className="nav-item">
+              <Link className="nav-links" to="/" onClick={handleClick}>
+                Contact us
+              </Link>
             </li>
-            <li>
-              <Link to="/">Location</Link>
+            <li className="nav-item">
+              <Link className="nav-links" to="/" onClick={handleClick}>
+                Location
+              </Link>
             </li>
           </ul>
         </div>
@@ -89,26 +98,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-//  <div className="second-links">
-//    <ul>
-//      <li>
-//        <Link to="/">NEW</Link>
-//      </li>
-//      <li>
-//        <Link to="/">NEW</Link>
-//      </li>
-//      <li>
-//        <Link to="/">NEW</Link>
-//      </li>
-//      <li>
-//        <Link to="/">NEW</Link>
-//      </li>
-//      <li>
-//        <Link to="/">NEW</Link>
-//      </li>
-//      <li>
-//        <Link to="/">NEW</Link>
-//      </li>
-//    </ul>
-//  </div>;

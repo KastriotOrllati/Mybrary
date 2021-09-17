@@ -4,9 +4,12 @@
   margin-bottom: 80px;
 }
 
+.display-none {
+  display: none;
+}
+
 .admin-page {
   display: flex;
-  transform: translateY(-0%);
   background-color: rgb(241, 240, 233);
   margin-bottom: 20px;
 }
@@ -74,8 +77,9 @@
     font-size: 1.1rem;
     width: 70%;
     transform: translateX(-50px);
-
     justify-content: flex-start;
+    padding-left: 10px;
+    transition: all 0.3s;
   }
   .signin-div {
     font-size: 1rem;
@@ -91,19 +95,61 @@
 }
 
 @media screen and (max-width: 650px) {
+  .admin-page {
+    position: relative;
+  }
+  .logo {
+    position: relative;
+  }
+  .nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+  }
+
   .link-list {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transform: translateX(0);
+    height: 93vh;
+    position: absolute;
+
+    top: 70px;
+    left: -100%;
+    justify-content: flex-start;
+    transition: all 0.5s ease;
+  }
+
+  .link-list.active {
+    background: #1a1818;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 1.2rem 4rem;
+  }
+
+  .nav-links:hover {
+    background-color: #1888ff;
+    border-radius: 2px;
   }
 
   .signin-div {
     transform: translateY(5px);
-    width: 90%;
+    width: 95%;
   }
   .menu-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
     font-size: 1.2rem;
   }
 }
