@@ -6,8 +6,23 @@ import "./BookList.css";
 
 import BookCard from "../BookCard/BookCard.component";
 
-function BookList() {
-  const [books, setBooks] = useState([]);
+function BookList(props) {
+  const { bookCategory } = props;
+
+  // const [books, setBooks] = useState([]);
+  const [categoryBooks, setCategoryBooks] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:39068/api/Libra", {
+  //     method: "GET",
+  //     headers: authHeader(),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setBooks(data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [setBooks]);
+
   useEffect(() => {
     fetch("http://localhost:39068/api/Libra", {
       method: "GET",
@@ -15,11 +30,18 @@ function BookList() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setBooks(data);
+        const category = data.filter((book) => book.category === bookCategory);
+        setCategoryBooks(category);
       })
       .catch((err) => console.log(err));
-  }, [setBooks]);
+  }, [setCategoryBooks]);
 
+  // const handleCategory = () => {
+  //   const bookss = books.filter((book) => book.category === props.category);
+  //   setCategoryBooks(bookss);
+  // };
+
+  console.log(categoryBooks);
   // const handleDelete = (id) => {
   //   fetch(`http://localhost:39068/api/Libra/${id}`, {
   //     method: "DELETE",
@@ -35,10 +57,13 @@ function BookList() {
 
   return (
     <div className="booklist-conatiner">
-      <h1>Category</h1>
-      <ul>
-        {books.map((book) => (
-          <li>
+      <div className="div-booklist ">
+        <h1>{bookCategory} Books</h1>
+        <button>SEE MORE</button>
+      </div>
+      <ul className="book-detail">
+        {categoryBooks.map((book) => (
+          <li className="link">
             <Link to={`/book/` + book.id} key={book.id}>
               <BookCard book={book} key={book.id} />
             </Link>
@@ -50,6 +75,14 @@ function BookList() {
 }
 
 export default BookList;
+
+// {books.map((book) => (
+//   <li className="link">
+//     <Link to={`/book/` + book.id} key={book.id}>
+//       <BookCard book={book} key={book.id} />
+//     </Link>
+//   </li>
+// ))}
 
 // {event.name}
 

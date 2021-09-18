@@ -1,0 +1,34 @@
+.h1 {
+  padding-top: 14%;
+  align-items: center;
+  margin-left: -25%;
+}
+.form-create-cat {
+  display: flex;
+  justify-content: center;
+  margin-left: -25%;
+}
+.create-cat-button {
+  height: 56px;
+  margin-top: 16px;
+  margin-left: 20px;
+  border: none;
+  font-size: 16px;
+  background-color: #253053;
+  color: white;
+}
+.create-cat-button:hover {
+  background-color: #445691;
+  border-bottom: 1px white;
+}
+@media screen and (max-width: 800px) {
+  .h1 {
+    padding-top: 14%;
+    margin-left: 0;
+  }
+  .form-create-cat {
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+  }
+}

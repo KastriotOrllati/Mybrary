@@ -4,9 +4,10 @@
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 320px;
+  width: 270px;
   height: 100%;
   background-color: #253053;
+  z-index: 1;
 }
 
 .menu-container {
@@ -44,4 +45,9 @@
 
 .links:not(:last-child) {
   border-bottom: 1px solid grey;
+}
+@media screen and (max-width: 880px) {
+  .side-menu {
+    display: none;
+  }
 }

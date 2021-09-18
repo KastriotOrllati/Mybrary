@@ -1,4 +1,7 @@
 .createBook {
+  max-width: 80%;
+  width: 100%;
+  margin-left: auto;
   display: flex;
   flex-flow: column wrap;
   justify-self: center;
@@ -15,4 +18,9 @@
 
 .input {
   margin: 10px 0;
+}
+@media screen and (max-width: 880px) {
+  .createBook {
+    max-width: 100%;
+  }
 }

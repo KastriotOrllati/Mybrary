@@ -1,19 +1,49 @@
 ul {
   list-style-type: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
   overflow: hidden;
 }
-
 .link {
   text-decoration: none;
   color: black;
+  padding: 2rem;
 }
-
 .booklist-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.booklist-category {
+  display: flex;
+  align-self: flex-start;
+  padding-left: 6%;
+}
+.div-booklist {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 6%;
+}
+.div-booklist button {
+  margin-top: 20px;
+  height: 50px;
+  width: 150px;
+  margin-right: 6%;
+}
+@media screen and (max-width: 800px) {
+  .link {
+    width: 40%;
+  }
+
+  .booklist-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .book-detail {
+    width: 100%;
+  }
 }

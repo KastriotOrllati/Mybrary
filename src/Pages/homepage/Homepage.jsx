@@ -10,7 +10,9 @@ function Homepage(props) {
   return (
     <div className="homepage">
       <Route exact path="/">
-        <BookList />
+        <BookList bookCategory="History" />
+        <BookList bookCategory="bussines" />
+        <BookList bookCategory="Animuar" />
       </Route>
       <Switch>
         <Route path="/book/:slug">
