@@ -1,5 +1,6 @@
 import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
+import "./CreateCategory.css";
 
 export default function CreateCategory() {
   const [categories, setCategories] = useState("");
@@ -20,7 +21,8 @@ export default function CreateCategory() {
   console.log(categories);
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <h1 className="h1">Create Category</h1>
+      <form className="form-create-cat" onSubmit={handleSubmit}>
         <TextField
           variant="filled"
           size="medium"
@@ -29,7 +31,10 @@ export default function CreateCategory() {
           name="addCategory"
           onChange={(e) => setCategories(e.target.value)}
         />
-        <button type="submit">Add</button>
+
+        <button className="create-cat-button" type="submit">
+          Add Category
+        </button>
       </form>
     </div>
   );

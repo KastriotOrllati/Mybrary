@@ -23,6 +23,16 @@ const BookCard = ({ book }) => {
       height: 240,
       width: 180,
     },
+    "@media (min-width: 650px)": {
+      root: {
+        maxWidth: "230px",
+        maxHeight: "500px",
+      },
+      media: {
+        height: 300,
+        width: 230,
+      },
+    },
   });
   const classes = useStyles();
   return (

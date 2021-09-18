@@ -3,6 +3,7 @@ import { Button, TextField } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import "./ReusableForm.css";
 import { useParams } from "react-router";
 
 function ReusableForm(props) {
@@ -117,7 +118,7 @@ function ReusableForm(props) {
   //   console.log("this is edit");
   // };
   return (
-    <div>
+    <div className="form-container">
       <form
         className="formStyle"
         onSubmit={handleSubmit}
@@ -188,7 +189,7 @@ function ReusableForm(props) {
           label="ISBN"
           inputProps={{ "aria-label": "name" }}
           className="input"
-          value={values.isbn || ""}
+          value={values.ISBN || ""}
           name="ISBN"
           onChange={handleInputChange}
           id="standard-basic"

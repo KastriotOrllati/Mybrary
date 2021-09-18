@@ -1,0 +1,10 @@
+.form-container {
+  max-width: 80%;
+  overflow: hidden;
+}
+@media screen and (max-width: 650px) {
+  .form-container {
+    width: 100%;
+    overflow: hidden;
+  }
+}

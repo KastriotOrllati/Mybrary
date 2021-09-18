@@ -1,0 +1,11 @@
+.route {
+  max-width: 80%;
+  position: relative;
+  margin-left: auto;
+}
+@media screen and (max-width: 800px) {
+  .route {
+    margin-left: 0;
+    width: 100%;
+  }
+}
