@@ -1,16 +1,18 @@
 .nav-bar {
   height: 10rem;
-  transform: translateY(-10%);
+  transform: translateY(-11%);
   margin-bottom: 80px;
 }
 
-.display-none {
-  display: none;
+.nav-item {
+  padding: 10px;
 }
 
 .no-scroll {
   position: fixed;
   width: 100%;
+  transform: translateY(-15%);
+  margin-top: 0;
 }
 
 .admin-page {
@@ -41,6 +43,11 @@
   justify-content: flex-end;
   padding-right: 2%;
   font-size: 1.2rem;
+  padding-top: 10px;
+}
+
+.signin-div a {
+  padding: 10px 10px;
 }
 
 .logo {
@@ -84,7 +91,6 @@
     transform: translateX(-50px);
     justify-content: flex-start;
     padding-left: 10px;
-    transition: all 0.3s;
   }
   .signin-div {
     font-size: 1rem;
@@ -93,6 +99,7 @@
     display: flex;
     transform: translateY(5px);
     padding-right: 2%;
+    padding-bottom: 20px;
   }
   .search-div {
     justify-content: center;
@@ -118,14 +125,14 @@
     flex-direction: column;
     width: 100%;
     transform: translateX(0);
-    overflow-y: hidden;
-    height: 93vh;
+    overflow: hidden;
+    height: 94vh;
     position: fixed;
 
     top: 70px;
     left: -100%;
     justify-content: flex-start;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     padding: 0;
   }
 
@@ -135,9 +142,8 @@
     opacity: 1;
     transition: all 0.3s ease;
     z-index: 1000;
-    margin: 0;
-    height: 93vh;
-    overflow: hidden;
+    height: 95vh;
+    position: fixed;
   }
 
   .nav-item a {
@@ -159,7 +165,6 @@
     width: 95%;
   }
   .menu-icon {
-    padding-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
