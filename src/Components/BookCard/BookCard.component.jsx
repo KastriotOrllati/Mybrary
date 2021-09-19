@@ -30,7 +30,7 @@ const BookCard = ({ book }) => {
       },
       media: {
         height: 300,
-        width: 230,
+        width: 180,
       },
     },
   });

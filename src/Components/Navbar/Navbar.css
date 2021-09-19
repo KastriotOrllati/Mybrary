@@ -12,7 +12,6 @@
   position: fixed;
   width: 100%;
   transform: translateY(-15%);
-  margin-top: 0;
   padding-bottom: 80px;
 }
 
@@ -146,7 +145,7 @@
     transition: all 0.3s ease;
     z-index: 1000;
     height: 94vh;
-    position: fixed;
+    overflow: hidden;
   }
 
   .nav-item a {
@@ -155,7 +154,7 @@
 
   .nav-links {
     text-align: center;
-    padding: 1.2rem 4rem;
+    padding: 1rem 4rem;
   }
 
   .nav-links:hover {
@@ -164,7 +163,6 @@
   }
 
   .signin-div {
-    transform: translateY(5px);
     width: 95%;
   }
   .menu-icon {
