@@ -1,7 +1,7 @@
 .nav-bar {
   height: 10rem;
-  transform: translateY(-11%);
-  margin-bottom: 80px;
+
+  margin-bottom: 150px;
 }
 
 .nav-item {
@@ -13,12 +13,12 @@
   width: 100%;
   transform: translateY(-15%);
   margin-top: 0;
+  padding-bottom: 80px;
 }
 
 .admin-page {
   display: flex;
   background-color: rgb(241, 240, 233);
-  margin-bottom: 20px;
 }
 
 .nav-bar a {
@@ -35,6 +35,7 @@
   width: 70%;
   justify-content: flex-start;
   font-size: 1.2rem;
+  align-items: center;
 }
 
 .signin-div {
@@ -55,6 +56,7 @@
   transform: translateY(-15%);
   font-size: 3rem;
   margin-bottom: 20px;
+  margin-top: 2%;
 }
 
 .logo a {
@@ -78,12 +80,13 @@
   display: flex;
   justify-content: flex-start;
   margin-left: 4%;
+  padding-bottom: 30px;
 }
 
 .search-div input {
+  background-color: rgb(241, 240, 233);
   padding: 1rem;
 }
-
 @media screen and (max-width: 800px) {
   .link-list {
     font-size: 1.1rem;
@@ -142,7 +145,7 @@
     opacity: 1;
     transition: all 0.3s ease;
     z-index: 1000;
-    height: 95vh;
+    height: 94vh;
     position: fixed;
   }
 

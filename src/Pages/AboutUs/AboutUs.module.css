@@ -1,0 +1,41 @@
+.aboutus {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.bodyContainer {
+  display: flex;
+  align-items: center;
+}
+.aboutusImage {
+  max-width: 40%;
+  margin-left: 5%;
+  margin-right: 2%;
+}
+img {
+  width: 100%;
+  height: 40rem;
+}
+.aboutusDetail {
+  max-width: 50%;
+  text-align: start;
+  font-size: 15px;
+}
+@media screen and (max-width: 800px) {
+  .bodyContainer {
+    flex-direction: column;
+  }
+  .aboutusDetail {
+    max-width: 80%;
+    margin-left: 5%;
+  }
+  .aboutusImage {
+    max-width: 80%;
+    margin-left: 5%;
+    margin-right: 2%;
+  }
+  img {
+    width: 100%;
+    height: 30rem;
+  }
+}

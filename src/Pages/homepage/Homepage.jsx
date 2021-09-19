@@ -11,7 +11,7 @@ function Homepage(props) {
     <div className="homepage">
       <Route exact path="/">
         <BookList bookCategory="History" />
-        <BookList bookCategory="bussines" />
+        <BookList bookCategory="Bussines" />
         <BookList bookCategory="Animuar" />
       </Route>
       <Switch>
