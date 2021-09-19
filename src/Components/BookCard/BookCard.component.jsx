@@ -25,7 +25,7 @@ const BookCard = ({ book }) => {
     },
     "@media (min-width: 650px)": {
       root: {
-        maxWidth: "230px",
+        maxWidth: "200px",
         maxHeight: "500px",
       },
       media: {

@@ -15,7 +15,7 @@ export default function SideMenu() {
         <h1>Category</h1>
         <div className="links">
           <Link to="/admin/category">Create a category</Link>
-          <Link to="/admin/create">Create a book</Link>
+          <Link to="/admin/create">All Categorys</Link>
         </div>
       </div>
     </div>

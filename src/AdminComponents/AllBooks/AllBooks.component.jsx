@@ -53,6 +53,19 @@ function AllBooks(props) {
       .then((data) => setBooks(data));
   }, []);
 
+  const onDeleteHandler = (id) => {
+    fetch(`http://localhost:39068/api/Libra/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    setBooks(books.filter((event) => event.id !== id));
+  };
+
+  const everyBook = (id) => {
+    fetch(`http://localhost:39068/api/Libra/${id}`);
+  };
+
   const { TblContainer, TblHead, TblPegination, recordsAfterPagingAndSorting } =
     useTable(books, headCells, filterFn);
   return (
@@ -90,7 +103,12 @@ function AllBooks(props) {
                   <Button color="primary">
                     <EditOutlinedIcon fontSize="small" />
                   </Button>
-                  <Button color="secondary">
+                  <Button
+                    color="secondary"
+                    onClick={() => {
+                      onDeleteHandler(book.id);
+                    }}
+                  >
                     <CloseIcon fontSize="small" />
                   </Button>
                 </TableCell>
