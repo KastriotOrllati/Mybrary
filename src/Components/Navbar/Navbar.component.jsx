@@ -6,6 +6,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import "./Navbar.css";
 
@@ -73,7 +74,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-links" to="/" onClick={handleClick}>
+              <Link className="nav-links" to="/AboutUs" onClick={handleClick}>
                 About
               </Link>
             </li>
@@ -85,6 +86,11 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-links" to="/" onClick={handleClick}>
                 Location
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-links" to="/Wishlist" onClick={handleClick}>
+                <FavoriteIcon />
               </Link>
             </li>
           </ul>
