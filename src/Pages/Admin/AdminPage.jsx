@@ -7,6 +7,7 @@ import CreateCategory from "../../AdminComponents/CreateCategory/CreateCategory"
 import EditBook from "../../AdminComponents/EditBook/EditBook.component";
 import AllBooks from "../../AdminComponents/AllBooks/AllBooks.component";
 import SideMenu from "./Side-menu/SideMenu";
+import AllCategories from "../../AdminComponents/AllCategorys/AllCategories";
 
 const AdminPage = () => {
   return (
@@ -26,6 +27,9 @@ const AdminPage = () => {
           </Route>
           <Route path="/admin/category">
             <CreateCategory />
+          </Route>
+          <Route path="/admin/all-categories">
+            <AllCategories />
           </Route>
         </Switch>
       </div>
