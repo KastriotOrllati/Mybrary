@@ -12,7 +12,6 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: space-evenly;
-
   width: 500px;
 }
 

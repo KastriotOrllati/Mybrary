@@ -31,6 +31,13 @@ ul {
   height: 50px;
   width: 150px;
   margin-right: 6%;
+  border: none;
+  font-size: 18px;
+  background-color: rgb(211, 211, 211);
+  border-radius: 8px;
+}
+.div-booklist button:hover {
+  background-color: rgb(228, 228, 228);
 }
 @media screen and (max-width: 800px) {
   .link {
