@@ -13,25 +13,31 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
         <Switch>
           <Route path="/signin">
+            <Navbar />
             <SignRegister />
+            <Footer />
           </Route>
           <Route path="/admin/">
             <AdminPage />
           </Route>
           <Route path="/AboutUs">
+            <Navbar />
             <AboutUs />
+            <Footer />
           </Route>
           <Route path="/Wishlist">
+            <Navbar />
             <Wishlist />
+            <Footer />
           </Route>
           <Route path="/">
+            <Navbar />
             <Homepage />
+            <Footer />
           </Route>
         </Switch>
-        <Footer />
       </Router>
     </div>
   );

@@ -57,7 +57,7 @@ function BookList(props) {
 
   return (
     <div className="booklist-conatiner">
-      <div className="div-booklist ">
+      <div className="div-booklist">
         <h1>{bookCategory} Books</h1>
         <button>SEE MORE</button>
       </div>

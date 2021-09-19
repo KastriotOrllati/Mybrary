@@ -1,6 +1,11 @@
 .form-container {
   max-width: 80%;
   overflow: hidden;
+  height: 100%;
+}
+.formStyle img {
+  max-width: 30%;
+  height: 30vh;
 }
 @media screen and (max-width: 650px) {
   .form-container {
