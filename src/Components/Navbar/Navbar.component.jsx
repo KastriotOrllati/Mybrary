@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { makeStyles, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
@@ -10,20 +10,18 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import "./Navbar.css";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "none",
-    "@media (max-width: 800px)": {
-      "& .MuiIconButton-root": {
-        display: "block",
-      },
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     display: "none",
+//     "@media (max-width: 800px)": {
+//       "& .MuiIconButton-root": {
+//         display: "block",
+//       },
+//     },
+//   },
+// }));
 
 const Navbar = () => {
-  const classes = useStyles();
-
   const [openMenu, setOpenMenu] = useState(false);
 
   const [width, setWidth] = useState(651);
@@ -79,12 +77,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-links" to="/" onClick={handleClick}>
+              <Link className="nav-links" to="/asdasdss" onClick={handleClick}>
                 Contact us
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-links" to="/" onClick={handleClick}>
+              <Link className="nav-links" to="/asdasd" onClick={handleClick}>
                 Location
               </Link>
             </li>
@@ -107,7 +105,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="logo">
-        <Link href="#">Mybrary</Link>
+        <li href="#">Mybrary</li>
       </div>
 
       <div className="second-bar">

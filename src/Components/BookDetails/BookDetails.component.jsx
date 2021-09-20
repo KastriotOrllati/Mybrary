@@ -107,7 +107,7 @@ function BookDetails({ props }) {
                   <Rating
                     name="size-small"
                     size="small"
-                    name="read-only"
+                 
                     value={4}
                     readOnly
                   />

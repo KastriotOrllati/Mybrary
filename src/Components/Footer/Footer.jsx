@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import "./footer.css";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -11,7 +11,7 @@ export default function Footer() {
       <footer className="footer">
         <div className="footer-col">
           <h4>Informacione</h4>
-          <Link href="">Rreth Projektit</Link>
+          <h5>Rreth Projektit</h5>
           <p>
             Developers(<small>Pas botimit te librit</small>)*
           </p>
@@ -27,7 +27,7 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h4>Kontakti</h4>
-          <Link>forexample@ubt-uni.net</Link>
+          <h5>forexample@ubt-uni.net</h5>
         </div>
         <div className="footer-col icons">
           <FacebookIcon />
