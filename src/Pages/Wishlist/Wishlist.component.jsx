@@ -17,7 +17,7 @@ export default function Wishlist() {
     <div className={classes.container}>
       <div className={classes.products}>
         <span className={classes.productImage}>
-          <img src={Rich} />
+          <img src={Rich} alt="hello" />
         </span>
         <span className={classes.productDetails}>
           <h2>Rich Dad poor Dad</h2>

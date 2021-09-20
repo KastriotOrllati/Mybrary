@@ -1,7 +1,7 @@
 import React from "react";
 import "../../App.css";
 
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import BookView from "../../Components/BookView/BookView.component";
 import BookList from "../../Components/BookList/BookList.component";
@@ -15,9 +15,11 @@ function Homepage(props) {
         <BookList bookCategory="Animuar" />
       </Route>
       <Switch>
-        <Route path="/book/:slug">
-          <BookView />
-        </Route>
+        <Router>
+          <Route path="/book/:slug">
+            <BookView />
+          </Route>
+        </Router>
       </Switch>
     </div>
   );
