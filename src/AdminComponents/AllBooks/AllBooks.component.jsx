@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   InputAdornment,
@@ -101,7 +102,8 @@ function AllBooks(props) {
                 <TableCell>{book.category}</TableCell>
                 <TableCell>
                   <Button color="primary">
-                    <EditOutlinedIcon fontSize="small" />
+                    {/* <EditOutlinedIcon fontSize="small" /> */}
+                    <Link to={`/admin/book/edit/${book.id}`}> Edit Book </Link>
                   </Button>
                   <Button
                     color="secondary"

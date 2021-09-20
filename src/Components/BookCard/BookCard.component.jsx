@@ -52,7 +52,7 @@ const BookCard = ({ book }) => {
           <Typography variant="body1" color="textSecondary" component="p">
             {autori}
           </Typography>
-          <Typography component="span">$ {cmimi}</Typography>
+          <Typography component="span">${cmimi}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>

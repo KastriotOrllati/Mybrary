@@ -59,12 +59,18 @@ function BookList(props) {
     <div className="booklist-conatiner">
       <div className="div-booklist">
         <h1>{bookCategory} Books</h1>
-        <button>SEE MORE</button>
+        <Link to={"/books/category/" + bookCategory} className="see-more">
+          <button>SEE MORE</button>
+        </Link>
       </div>
       <ul className="book-detail">
         {categoryBooks.map((book) => (
           <li className="link">
-            <Link to={`/book/` + book.id} key={book.id}>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/book/` + book.id}
+              key={book.id}
+            >
               <BookCard book={book} key={book.id} />
             </Link>
           </li>
