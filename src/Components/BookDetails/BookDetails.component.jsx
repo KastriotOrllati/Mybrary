@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import "./BookDetails.css";
 import Rating from "@material-ui/lab/Rating";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 function BookDetails({ props }) {
   const [wishlisted, setWishlisted] = useState(false);
@@ -113,7 +114,9 @@ function BookDetails({ props }) {
                 </Box>
               </span>
 
-              <span> Sign in to review</span>
+              <span>
+                <Link to="/">Sign In to review</Link>
+              </span>
             </div>
           </div>
           <div className="extraInfo">

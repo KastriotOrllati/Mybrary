@@ -25,6 +25,7 @@ ul {
   display: flex;
   justify-content: space-between;
   margin-left: 6%;
+  color: rgb(102, 59, 59);
 }
 .div-booklist button {
   margin-top: 20px;
@@ -33,11 +34,12 @@ ul {
   margin-right: 6%;
   border: none;
   font-size: 18px;
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(102, 59, 59);
+  color: white;
   border-radius: 8px;
 }
 .div-booklist button:hover {
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(131, 78, 78);
 }
 @media screen and (max-width: 800px) {
   .link {
