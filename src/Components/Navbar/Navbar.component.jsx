@@ -69,7 +69,7 @@ const Navbar = () => {
         <div className={openMenu ? "link-list active" : "link-list"}>
           <ul>
             <li className="nav-item">
-              <Link className="nav-links" to="/ " onClick={handleClick}>
+              <Link className="nav-links" to="/" onClick={handleClick}>
                 Home
               </Link>
             </li>

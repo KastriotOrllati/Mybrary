@@ -59,7 +59,9 @@ function BookList(props) {
     <div className="booklist-conatiner">
       <div className="div-booklist">
         <h1>{bookCategory} Books</h1>
-        <button>SEE MORE</button>
+        <Link to={"/books/category/" + bookCategory} className="see-more">
+          <button>SEE MORE</button>
+        </Link>
       </div>
       <ul className="book-detail">
         {categoryBooks.map((book) => (
