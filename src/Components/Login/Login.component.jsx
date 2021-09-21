@@ -3,8 +3,10 @@ import React, { useState } from "react";
 
 import TextField from "@material-ui/core/TextField";
 import "./Login.css";
+import { useHistory } from "react-router-dom";
 
 function Login() {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   //   const [responseData, setResponseData] = useState({});
@@ -20,8 +22,13 @@ function Login() {
       .then((res) => res.json())
       .then((data) => {
         // setResponseData(data);
-        localStorage.setItem("user", JSON.stringify(data));
-      });
+        if (data.title !== "Unauthorized") {
+          localStorage.setItem("user", JSON.stringify(data));
+        }
+        history.push("/");
+      }).catch = (err) => {
+      console.log(err);
+    };
   };
 
   // const handleLogout = (e) => {

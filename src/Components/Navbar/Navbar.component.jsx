@@ -21,7 +21,8 @@ import "./Navbar.css";
 //   },
 // }));
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const login = props.login;
   const [openMenu, setOpenMenu] = useState(false);
 
   const [width, setWidth] = useState(651);
@@ -92,14 +93,18 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="signin-div">
-          <ul>
-            <li>
-              <Link to="/signin">Sign in</Link>
-            </li>
-            <li>
-              <Link to="/signin">Register</Link>
-            </li>
-          </ul>
+          {login ? (
+            <div>You are logged in</div>
+          ) : (
+            <ul>
+              <li>
+                <Link to="/signin">Sign in</Link>
+              </li>
+              <li>
+                <Link to="/signin">Register</Link>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
       <div className="logo">
