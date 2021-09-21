@@ -41,7 +41,6 @@ function BookList(props) {
   //   setCategoryBooks(bookss);
   // };
 
-  console.log(categoryBooks);
   // const handleDelete = (id) => {
   //   fetch(`http://localhost:39068/api/Libra/${id}`, {
   //     method: "DELETE",

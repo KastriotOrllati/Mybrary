@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../Components/Footer/Footer";
+
 import Login from "../../Components/Login/Login.component";
 import Register from "../../Components/Register/Register.component";
 

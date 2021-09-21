@@ -35,7 +35,7 @@ const headCells = [{ id: "category", label: "Category name" }];
 function AllCategories(props) {
   const classes = useStyles();
   const [category, setCategory] = useState([]);
-  const [filterFn, setFilterFn] = useState({
+  const [filterFn] = useState({
     fn: (items) => {
       return items;
     },
@@ -56,9 +56,9 @@ function AllCategories(props) {
     setCategory(category.filter((event) => event.id !== id));
   };
 
-  const everyBook = (id) => {
-    fetch(`http://localhost:39068/api/Libra/${id}`);
-  };
+  // const everyBook = (id) => {
+  //   fetch(`http://localhost:39068/api/Libra/${id}`);
+  // };
 
   const { TblContainer, TblHead, TblPegination, recordsAfterPagingAndSorting } =
     useTable(category, headCells, filterFn);

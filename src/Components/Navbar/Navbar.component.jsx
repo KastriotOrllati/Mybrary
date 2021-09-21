@@ -41,7 +41,6 @@ const Navbar = () => {
 
     return () => window.removeEventListener("resize", updateWindowDimensions);
   }, []);
-  console.log("width" + width);
 
   useEffect(() => {
     if (width > 650) {
@@ -55,7 +54,6 @@ const Navbar = () => {
     }
   }, [width]);
 
-  console.log(openMenu);
   return (
     <div className={openMenu && width < 650 ? "nav-bar no-scroll" : "nav-bar"}>
       <div className="admin-page">
