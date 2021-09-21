@@ -24,14 +24,12 @@ function App() {
 
     if (response.Authorization) {
       setLogin(true);
-    } else {
-      setLogin(false);
     }
-  }, [login]);
+  }, []);
 
   return (
     <div className="App">
-      <Router forceRefresh={true}>
+      <Router>
         <Navbar login={login} />
 
         <Switch>

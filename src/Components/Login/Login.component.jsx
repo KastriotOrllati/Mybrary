@@ -25,6 +25,7 @@ function Login() {
         if (data.title !== "Unauthorized") {
           localStorage.setItem("user", JSON.stringify(data));
           history.push("/");
+          history.go();
         }
       }).catch = (err) => {
       console.log(err);

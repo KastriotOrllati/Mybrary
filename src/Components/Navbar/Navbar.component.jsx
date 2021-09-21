@@ -60,6 +60,8 @@ const Navbar = (props) => {
     e.preventDefault();
     localStorage.removeItem("user");
     history.push("/");
+
+    history.go();
   };
   return (
     <div className={openMenu && width < 650 ? "nav-bar no-scroll" : "nav-bar"}>
