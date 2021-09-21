@@ -25,7 +25,7 @@ function App() {
     if (response.Authorization) {
       setLogin(true);
     }
-  }, []);
+  }, [login]);
 
   return (
     <div className="App">
