@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [login, setLogin] = useState(false);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     let response = authHeader();
@@ -26,25 +27,26 @@ function App() {
       setLogin(true);
     }
   }, [login]);
-
+  // useEffect(() => {
+  //   let loggedUser = localStorage.getItem("user");
+  //   setUser(loggedUser);
+  // }, []);
+  // console.log(user.role);
   return (
     <div className="App">
       <Router>
         <Navbar login={login} />
-
         <Switch>
           <Route exact path="/">
             <Homepage />
           </Route>
+          <Route exact path="/AboutUs">
+            <AboutUs />
+          </Route>
           <Route
-            exact
             path="/signin"
             render={() => (login ? <Redirect to="/" /> : <SignRegister />)}
           />
-
-          <Route path="/AboutUs">
-            <AboutUs />
-          </Route>
           <Route path="/Wishlist">
             <Wishlist />
           </Route>

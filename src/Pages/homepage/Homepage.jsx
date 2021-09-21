@@ -11,13 +11,14 @@ function Homepage(props) {
   console.log("From homepage");
   return (
     <div className="homepage">
-      <Route exact path="/">
-        <BookList bookCategory="History" />
-        <BookList bookCategory="Bussines" />
-        <BookList bookCategory="Animated" />
-      </Route>
-      <Switch>
+      <BookList bookCategory="Crime" />
+      <BookList bookCategory="Fantasy" />
+      <BookList bookCategory="Classic" />
+      <BookList bookCategory="History" />
+      <BookList bookCategory="Bussines" />
+      <BookList bookCategory="Animated" />
 
+      <Switch>
         <Route path="/book/:slug">
           <BookView />
         </Route>
@@ -30,7 +31,6 @@ function Homepage(props) {
             <BookView />
           </Route>
         </Router>
-
       </Switch>
     </div>
   );
