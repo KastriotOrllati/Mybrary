@@ -25,7 +25,6 @@ function App() {
     if (response.Authorization !== undefined) {
       setLogin(true);
     }
-    console.log("response", response.Authorization);
   }, []);
 
   console.log("login", login);
