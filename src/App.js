@@ -13,12 +13,12 @@ import AdminPage from "./Pages/Admin/AdminPage";
 import Footer from "./Components/Footer/Footer";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Wishlist from "./Pages/Wishlist/Wishlist.component";
+import BookView from "./Components/BookView/BookView.component";
 import { authHeader } from "./Utils/authHeader";
 import { useEffect, useState } from "react";
 
 function App() {
   const [login, setLogin] = useState(false);
-  const [user, setUser] = useState({});
 
   useEffect(() => {
     let response = authHeader();
@@ -27,11 +27,7 @@ function App() {
       setLogin(true);
     }
   }, [login]);
-  // useEffect(() => {
-  //   let loggedUser = localStorage.getItem("user");
-  //   setUser(loggedUser);
-  // }, []);
-  // console.log(user.role);
+
   return (
     <div className="App">
       <Router>
@@ -40,7 +36,8 @@ function App() {
           <Route exact path="/">
             <Homepage />
           </Route>
-          <Route exact path="/AboutUs">
+          <Route path="/book/:slug" component={BookView} />
+          <Route path="/AboutUs">
             <AboutUs />
           </Route>
           <Route
@@ -51,7 +48,7 @@ function App() {
             <Wishlist />
           </Route>
         </Switch>
-        <Route exact path="/admin/">
+        <Route path="/admin/">
           <AdminPage />
         </Route>
       </Router>

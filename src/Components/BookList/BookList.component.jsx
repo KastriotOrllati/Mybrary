@@ -64,11 +64,9 @@ function BookList(props) {
       </div>
       <ul className="book-detail">
         {categoryBooks.map((book) => (
-          <li className="link" key={book.id}>
-            <Link style={{ textDecoration: "none" }} to={`/book/` + book.id}>
-              <BookCard book={book} key={book.id} />
-            </Link>
-          </li>
+          <Link style={{ textDecoration: "none" }} to={`/book/` + book.id}>
+            <BookCard book={book} key={book.id} />
+          </Link>
         ))}
       </ul>
     </div>

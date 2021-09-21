@@ -4,7 +4,7 @@ import BookDetails from "../BookDetails/BookDetails.component";
 import "./BookView.css";
 
 function BookView() {
-  const [event, setEvent] = useState({});
+  const [event, setEvent] = useState([]);
   let { slug } = useParams();
   useEffect(() => {
     // const api = "http://localhost:33581/api/libra/" + slug;

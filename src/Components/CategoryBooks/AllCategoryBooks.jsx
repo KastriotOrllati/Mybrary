@@ -6,13 +6,13 @@ export default function AllCategoryBooks() {
   return (
     <div>
       <Switch>
-        <Route exact path="/books/category/History">
+        <Route path="/books/category/History">
           <CategoryBooks bookCategory="History" />
         </Route>
-        <Route exact path="/books/category/Bussines">
+        <Route path="/books/category/Bussines">
           <CategoryBooks bookCategory="Bussines" />
         </Route>
-        <Route exact path="/books/category/Animated">
+        <Route path="/books/category/Animated">
           <CategoryBooks bookCategory="Animated" />
         </Route>
       </Switch>
