@@ -5,7 +5,6 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  TableSortLabel,
 } from "@material-ui/core";
 
 import React, { useState } from "react";
@@ -33,8 +32,8 @@ export default function useTable(books, headCells, filterFn) {
   const pages = [5, 10, 25];
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(pages[page]);
-  const [order, setOrder] = useState();
-  const [orderBy, setOrderBy] = useState();
+  const [order] = useState();
+  const [orderBy] = useState();
 
   const TblContainer = (props) => (
     <Table className={classes.table}>{props.children}</Table>

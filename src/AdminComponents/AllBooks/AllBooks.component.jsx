@@ -15,7 +15,6 @@ import {
 import useTable from "./useTable";
 import Search from "@material-ui/icons/Search";
 import AddIcon from "@material-ui/icons/Add";
-import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import CloseIcon from "@material-ui/icons/Close";
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -42,7 +41,7 @@ const headCells = [
 function AllBooks(props) {
   const classes = useStyles();
   const [books, setBooks] = useState([]);
-  const [filterFn, setFilterFn] = useState({
+  const [filterFn] = useState({
     fn: (items) => {
       return items;
     },
@@ -63,9 +62,9 @@ function AllBooks(props) {
     setBooks(books.filter((event) => event.id !== id));
   };
 
-  const everyBook = (id) => {
-    fetch(`http://localhost:39068/api/Libra/${id}`);
-  };
+  // const everyBook = (id) => {
+  //   fetch(`http://localhost:39068/api/Libra/${id}`);
+  // };
 
   const { TblContainer, TblHead, TblPegination, recordsAfterPagingAndSorting } =
     useTable(books, headCells, filterFn);

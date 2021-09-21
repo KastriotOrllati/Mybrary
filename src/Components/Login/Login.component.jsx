@@ -24,8 +24,8 @@ function Login() {
         // setResponseData(data);
         if (data.title !== "Unauthorized") {
           localStorage.setItem("user", JSON.stringify(data));
+          history.push("/");
         }
-        history.push("/");
       }).catch = (err) => {
       console.log(err);
     };

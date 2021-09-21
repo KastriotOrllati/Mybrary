@@ -34,7 +34,7 @@ function BookList(props) {
         setCategoryBooks(category);
       })
       .catch((err) => console.log(err));
-  }, [setCategoryBooks]);
+  }, [bookCategory]);
 
   // const handleCategory = () => {
   //   const bookss = books.filter((book) => book.category === props.category);

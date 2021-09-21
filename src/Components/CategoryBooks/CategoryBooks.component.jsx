@@ -23,7 +23,7 @@ export default function CategoryBooks(props) {
         setCategoryBooks(category);
       })
       .catch((err) => console.log(err));
-  }, [setCategoryBooks]);
+  }, [bookCategory]);
 
   return (
     <div className="booklist-conatiner">

@@ -3,7 +3,6 @@ import {
   Route,
   Switch,
   Redirect,
-  useHistory,
 } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar.component";
@@ -18,7 +17,6 @@ import { authHeader } from "./Utils/authHeader";
 import { useEffect, useState } from "react";
 
 function App() {
-  const history = useHistory();
   const [login, setLogin] = useState(false);
 
   useEffect(() => {
@@ -29,14 +27,13 @@ function App() {
     } else {
       setLogin(false);
     }
-    console.log("resAuthorization", response.Authorization);
   }, [login]);
-  console.log("login", login);
 
   return (
     <div className="App">
-      <Router>
+      <Router forceRefresh={true}>
         <Navbar login={login} />
+
         <Switch>
           <Route exact path="/">
             <Homepage />
