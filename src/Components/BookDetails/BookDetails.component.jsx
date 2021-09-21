@@ -39,10 +39,7 @@ function BookDetails({ props }) {
   };
   // wishlist();
   console.log(wishlisted);
-  const handleLogout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("user");
-  };
+
   const { imageName, titulli, autori, nrFaqes, category, cmimi, stock, isbn } =
     props;
   // cmimi, nrFaqes, stock;
@@ -104,13 +101,7 @@ function BookDetails({ props }) {
             <div className="rating-div">
               <span className="rating">
                 <Box component="fieldset" mb={1} borderColor="transparent">
-                  <Rating
-                    name="size-small"
-                    size="small"
-                 
-                    value={4}
-                    readOnly
-                  />
+                  <Rating name="size-small" size="small" value={4} readOnly />
                 </Box>
               </span>
 
@@ -141,9 +132,7 @@ function BookDetails({ props }) {
             <Button>Add to basket</Button>
           </div>
           <div className="bookButtons">
-            <Button className="button" onClick={handleLogout}>
-              TEXT
-            </Button>
+            <Button className="button">TEXT</Button>
             <Button className="button" onClick={wishlist}>
               WISHLIST
             </Button>

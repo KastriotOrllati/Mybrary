@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import {
   Button,
-  InputAdornment,
   makeStyles,
   Paper,
   TableBody,
   TableCell,
   TableRow,
-  TextField,
   Toolbar,
 } from "@material-ui/core";
 
 import useTable from "../AllBooks/useTable";
-import Search from "@material-ui/icons/Search";
+
 import AddIcon from "@material-ui/icons/Add";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import CloseIcon from "@material-ui/icons/Close";
@@ -66,17 +64,6 @@ function AllCategories(props) {
     <div>
       <Paper className={classes.pageContent}>
         <Toolbar>
-          <TextField
-            label="Search Books"
-            className={classes.searchInput}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <Search />
-                </InputAdornment>
-              ),
-            }}
-          />
           <Button
             text="Add New"
             variant="outlined"
@@ -115,3 +102,15 @@ function AllCategories(props) {
 }
 
 export default AllCategories;
+
+// <TextField
+//   label="Search Books"
+//   className={classes.searchInput}
+//   InputProps={{
+//     startAdornment: (
+//       <InputAdornment position="start">
+//         <Search />
+//       </InputAdornment>
+//     ),
+//   }}
+// />;

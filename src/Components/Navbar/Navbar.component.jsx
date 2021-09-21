@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { TextField } from "@material-ui/core";
+import { Link, useHistory } from "react-router-dom";
+// import { TextField } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import SearchIcon from "@material-ui/icons/Search";
+// import InputAdornment from "@material-ui/core/InputAdornment";
+// import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -22,6 +22,7 @@ import "./Navbar.css";
 // }));
 
 const Navbar = (props) => {
+  const history = useHistory();
   const login = props.login;
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -55,6 +56,11 @@ const Navbar = (props) => {
     }
   }, [width]);
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("user");
+    history.push("/");
+  };
   return (
     <div className={openMenu && width < 650 ? "nav-bar no-scroll" : "nav-bar"}>
       <div className="admin-page">
@@ -94,7 +100,14 @@ const Navbar = (props) => {
         </div>
         <div className="signin-div">
           {login ? (
-            <div>You are logged in</div>
+            <ul>
+              <li>
+                <div>You are logged in</div>
+              </li>
+              <li>
+                <button onClick={handleLogout}>Logout</button>
+              </li>
+            </ul>
           ) : (
             <ul>
               <li>
@@ -112,24 +125,24 @@ const Navbar = (props) => {
       </div>
 
       <div className="second-bar">
-        <div className="search-div">
-          <TextField
-            variant="outlined"
-            label="Search a book"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment>
-                  <IconButton>
-                    <SearchIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </div>
+        <div className="search-div"></div>
       </div>
     </div>
   );
 };
 
 export default Navbar;
+
+//  <TextField
+//    variant="outlined"
+//    label="Search a book"
+//    InputProps={{
+//      endAdornment: (
+//        <InputAdornment>
+//          <IconButton>
+//            <SearchIcon />
+//          </IconButton>
+//        </InputAdornment>
+//      ),
+//    }}
+//  />;
