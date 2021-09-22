@@ -11,12 +11,12 @@ function Homepage(props) {
   console.log("From homepage");
   return (
     <div className="homepage">
-      <BookList bookCategory="Crime" />
-      <BookList bookCategory="Fantasy" />
-      <BookList bookCategory="Classic" />
-      <BookList bookCategory="History" />
-      <BookList bookCategory="Bussines" />
-      <BookList bookCategory="Animated" />
+      <BookList bookCategory="Crime" key={"Crime"} />
+      <BookList bookCategory="Fantasy" key={"Fantasy"} />
+      <BookList bookCategory="Classic" key={"Classic"} />
+      <BookList bookCategory="History" key={"History"} />
+      <BookList bookCategory="Bussines" key={"Bussines"} />
+      <BookList bookCategory="Animated" key={"Animated"} />
     </div>
   );
 }

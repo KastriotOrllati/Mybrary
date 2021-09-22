@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import { Box, Button } from "@material-ui/core";
@@ -7,10 +7,66 @@ import "./BookDetails.css";
 import Rating from "@material-ui/lab/Rating";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { authHeader } from "../../Utils/authHeader";
 
 function BookDetails({ props }) {
   const [wishlisted, setWishlisted] = useState(false);
+  const [login, setLogin] = useState(false);
+  const [review, setReview] = useState("");
+
   let { slug } = useParams();
+
+  const {
+    imageName,
+    titulli,
+    autori,
+    nrFaqes,
+    category,
+    cmimi,
+    stock,
+    isbn,
+    reviews,
+    id,
+  } = props;
+  useEffect(() => {
+    let response = authHeader();
+
+    if (response.Authorization) {
+      setLogin(true);
+    }
+    console.log("this is runnin");
+  }, [login]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let user = JSON.parse(localStorage.getItem("user"));
+    const LibraId = id;
+    const message = review;
+    const myreview = { LibraId, message };
+    if (user == null) return;
+    if (user.token !== null) {
+      // .then((data) => {
+      //   // setResponseData(data);
+      //   if (data.title !== "Unauthorized") {
+      //     localStorage.setItem("user", JSON.stringify(data));
+
+      //     history.push("/");
+      //     history.go();
+      //   }
+      // console.log(data);
+      // })
+      fetch("http://localhost:39068/api/Libra/Review", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${"Bearer " + user.token}`,
+        },
+        body: JSON.stringify(myreview),
+      }).then((res) => res.json()).catch = (err) => {
+        console.log(err);
+      };
+    }
+  };
 
   const wishlist = (e) => {
     e.preventDefault();
@@ -37,11 +93,7 @@ function BookDetails({ props }) {
       };
     }
   };
-  // wishlist();
-  console.log(wishlisted);
 
-  const { imageName, titulli, autori, nrFaqes, category, cmimi, stock, isbn } =
-    props;
   // cmimi, nrFaqes, stock;
 
   const useStyles = makeStyles({
@@ -78,7 +130,8 @@ function BookDetails({ props }) {
       justifyContent: "center",
     },
   });
-  console.log(props);
+  console.log("review", review);
+
   const classes = useStyles();
   return (
     <>
@@ -106,7 +159,7 @@ function BookDetails({ props }) {
               </span>
 
               <span>
-                <Link to="/">Sign In to review</Link>
+                {login ? null : <Link to="/signin">Sign In to review</Link>}
               </span>
             </div>
           </div>
@@ -137,36 +190,32 @@ function BookDetails({ props }) {
               WISHLIST
             </Button>
           </div>
+          {login ? (
+            <div className="bookButtons">
+              <form onSubmit={handleSubmit}>
+                <textarea
+                  rows={6}
+                  placeholder="Write a review"
+                  value={review}
+                  onChange={(e) => setReview(e.target.value)}
+                ></textarea>
+                <Button type="submit" className="button">
+                  Submit Review
+                </Button>
+              </form>
+            </div>
+          ) : null}
         </div>
       </div>
       <span className="review-span">
         <h3>Reviews</h3>
       </span>
       <section className="reviews-container">
-        <div className="review">
-          <h4>Name of the reviewer</h4>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro
-            suscipit consequuntur ab sit esse placeat, voluptatem earum fugiat
-            sed quam!
-          </p>
-        </div>
-        <div className="review">
-          <h4>Name of the reviewer</h4>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro
-            suscipit consequuntur ab sit esse placeat, voluptatem earum fugiat
-            sed quam!
-          </p>
-        </div>
-        <div className="review">
-          <h4>Name of the reviewer</h4>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro
-            suscipit consequuntur ab sit esse placeat, voluptatem earum fugiat
-            sed quam!
-          </p>
-        </div>
+        {reviews?.map((review) => (
+          <div className="review" key={review.id}>
+            <p>{review.message}</p>
+          </div>
+        ))}
       </section>
     </>
   );
