@@ -15,6 +15,7 @@ import AboutUs from "./Pages/AboutUs/AboutUs";
 import Wishlist from "./Pages/Wishlist/Wishlist.component";
 import BookView from "./Components/BookView/BookView.component";
 import { authHeader } from "./Utils/authHeader";
+
 import { useEffect, useState } from "react";
 
 function App() {
@@ -58,7 +59,3 @@ function App() {
 }
 
 export default App;
-
-// <Route path="/signin">
-//   <SignInRegister />
-// </Route>

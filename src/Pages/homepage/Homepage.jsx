@@ -1,10 +1,6 @@
 import React from "react";
 import "../../App.css";
 
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-// import BookView from "../../Components/BookView/BookView.component";
-// import AllCategoryBooks from "../../Components/CategoryBooks/AllCategoryBooks";
 import BookList from "../../Components/BookList/BookList.component";
 
 function Homepage(props) {
@@ -22,10 +18,3 @@ function Homepage(props) {
 }
 
 export default Homepage;
-
-// <Route path="/books/category/:ctg">
-//   <AllCategoryBooks />
-// </Route>
-
-//   // <BookView />
-// </Route>

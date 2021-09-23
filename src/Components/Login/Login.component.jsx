@@ -24,11 +24,18 @@ function Login() {
         // setResponseData(data);
         if (data.title !== "Unauthorized") {
           localStorage.setItem("user", JSON.stringify(data));
-
+        }
+      })
+      .then(() => {
+        let user = JSON.parse(localStorage.getItem("user"));
+        if (user.role[0] === "Admin") {
+          history.push("/admin/");
+          history.go();
+        } else {
           history.push("/");
           history.go();
         }
-        console.log(data);
+        // console.log(user.role[0]);
       }).catch = (err) => {
       console.log(err);
     };

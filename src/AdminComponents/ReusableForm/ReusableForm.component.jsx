@@ -25,11 +25,7 @@ function ReusableForm(props) {
   }, [setCategories]);
 
   useEffect(() => {
-    // const ac = new AbortController();
-
     setValues(initialFieldsValue);
-
-    // return () => ac.abort();
   }, [initialFieldsValue]);
 
   const handleSubmit = (e) => {
