@@ -3,6 +3,7 @@ import {
   Route,
   Switch,
   Redirect,
+  useLocation,
 } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar.component";
@@ -15,11 +16,15 @@ import AboutUs from "./Pages/AboutUs/AboutUs";
 import Wishlist from "./Pages/Wishlist/Wishlist.component";
 import BookView from "./Components/BookView/BookView.component";
 import { authHeader } from "./Utils/authHeader";
+import { getUser } from "./Utils/getUser";
 
 import { useEffect, useState } from "react";
 
 function App() {
   const [login, setLogin] = useState(false);
+  const [user, setUser] = useState();
+
+  let location = useLocation();
 
   useEffect(() => {
     let response = authHeader();
@@ -27,12 +32,14 @@ function App() {
     if (response.Authorization) {
       setLogin(true);
     }
+    let user = getUser();
+    setUser(user);
   }, [login]);
 
   return (
     <div className="App">
       <Router>
-        <Navbar login={login} />
+        {location.pathname === "/admin" ? null : <Navbar login={login} />}
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -49,11 +56,13 @@ function App() {
             <Wishlist />
           </Route>
         </Switch>
+      </Router>
+      <Router>
         <Route path="/admin/">
           <AdminPage />
         </Route>
       </Router>
-      <Footer />
+      {location.pathname === "/admin" ? null : <Footer />}
     </div>
   );
 }

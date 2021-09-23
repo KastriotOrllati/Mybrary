@@ -12,32 +12,9 @@ import AllCategories from "../../AdminComponents/AllCategorys/AllCategories";
 const AdminPage = () => {
   return (
     <div>
-
-      <SideMenu />
-      <h1>Welcome to admin dashboard!</h1>
-      <Route path="/admin/create">
-        <CreateBook />
-      </Route>
-      <div className="route">
-        <Switch>
-          <Route path="/admin/book/edit/:slug">
-            <EditBook />
-          </Route>
-          <Route path="/admin/allbooks">
-            <AllBooks />
-          </Route>
-          <Route path="/admin/category">
-            <CreateCategory />
-          </Route>
-          <Route path="/admin/all-categories">
-            <AllCategories />
-          </Route>
-        </Switch>
-      </div>
-
       <Router>
         <SideMenu />
-        <h1>Welcome to admin dashboard!</h1>
+
         <Route path="/admin/create">
           <CreateBook />
         </Route>
@@ -52,10 +29,12 @@ const AdminPage = () => {
             <Route path="/admin/category">
               <CreateCategory />
             </Route>
+            <Route path="/admin/all-categories">
+              <AllCategories />
+            </Route>
           </Switch>
         </div>
       </Router>
-
     </div>
   );
 };
