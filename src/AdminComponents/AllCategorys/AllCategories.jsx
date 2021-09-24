@@ -14,6 +14,7 @@ import useTable from "../AllBooks/useTable";
 import AddIcon from "@material-ui/icons/Add";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import CloseIcon from "@material-ui/icons/Close";
+import CreateCategory from "../CreateCategory/CreateCategory";
 const useStyles = makeStyles((theme) => ({
   pageContent: {
     margin: theme.spacing(5),
@@ -46,7 +47,7 @@ function AllCategories(props) {
   }, []);
 
   const onDeleteHandler = (id) => {
-    fetch(`http://localhost:39068/api/CategoriesE/${id}`, {
+    fetch(`http://localhost:39068/api/Categories/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
@@ -62,6 +63,7 @@ function AllCategories(props) {
     useTable(category, headCells, filterFn);
   return (
     <div>
+      <CreateCategory />
       <Paper className={classes.pageContent}>
         <Toolbar>
           <Button

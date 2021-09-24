@@ -1,5 +1,6 @@
 .front-image {
   position: relative;
+  margin-bottom: 30px;
 }
 .front-image img {
   width: 100%;
