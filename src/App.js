@@ -19,7 +19,6 @@ import { authHeader } from "./Utils/authHeader";
 import { getUser } from "./Utils/getUser";
 
 import { useEffect, useState } from "react";
-import AllCategoryBooks from "./Components/CategoryBooks/AllCategoryBooks";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -36,11 +35,12 @@ function App() {
     let user = getUser();
     setUser(user);
   }, [login]);
+  useEffect(() => {}, [location]);
 
   return (
     <div className="App">
       <Router>
-        {location.pathname === "/admin" ? null : <Navbar login={login} />}
+        {location.pathname.includes("/admin") ? null : <Navbar login={login} />}
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -56,9 +56,6 @@ function App() {
           <Route path="/Wishlist">
             <Wishlist />
           </Route>
-          <Route path="/books/category/:ctgr">
-            <AllCategoryBooks />
-          </Route>
         </Switch>
       </Router>
       <Router>
@@ -66,7 +63,7 @@ function App() {
           <AdminPage />
         </Route>
       </Router>
-      {location.pathname === "/admin" ? null : <Footer />}
+      {location.pathname.includes("/admin") ? null : <Footer />}
     </div>
   );
 }
