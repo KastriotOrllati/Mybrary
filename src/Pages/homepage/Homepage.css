@@ -1,0 +1,23 @@
+.front-image {
+  position: relative;
+}
+.front-image img {
+  width: 100%;
+  height: 30rem;
+}
+.front-image-link {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 190px;
+  top: 60%;
+  left: 59%;
+  color: white;
+  background-color: steelblue;
+  transform: translate(-50%, -50%);
+  font-size: 21px;
+  text-decoration: none;
+  border-radius: 5px;
+}
