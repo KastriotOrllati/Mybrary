@@ -104,9 +104,6 @@ const Navbar = (props) => {
           {login ? (
             <ul>
               <li>
-                <div>You are logged in</div>
-              </li>
-              <li>
                 <button onClick={handleLogout}>Logout</button>
               </li>
             </ul>
@@ -123,7 +120,7 @@ const Navbar = (props) => {
         </div>
       </div>
       <div className="logo">
-        <li href="#">Mybrary</li>
+        <h3>Mybrary</h3>
       </div>
 
       <div className="second-bar">
@@ -148,3 +145,5 @@ export default Navbar;
 //      ),
 //    }}
 //  />;
+
+// <li href="#">Mybrary</li>;

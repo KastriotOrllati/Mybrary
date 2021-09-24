@@ -14,7 +14,6 @@ const AdminPage = () => {
     <div>
       <Router>
         <SideMenu />
-
         <Route path="/admin/create">
           <CreateBook />
         </Route>

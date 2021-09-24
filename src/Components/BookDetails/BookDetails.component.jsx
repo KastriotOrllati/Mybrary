@@ -105,6 +105,7 @@ function BookDetails({ props }) {
       // marginLeft: 20,
       // marginRight: 20,
       height: 500,
+      boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
     },
     media: {
       height: 500,
@@ -149,7 +150,7 @@ function BookDetails({ props }) {
         </div>
         <div className="bookInfo">
           <div className="mainInfo">
-            <h2>Titulli: {titulli}</h2>
+            <h1>Titulli: {titulli}</h1>
             <h3>{autori} (author) </h3>
             <div className="rating-div">
               <span className="rating">
@@ -166,26 +167,36 @@ function BookDetails({ props }) {
           <div className="extraInfo">
             <div className="nr-kategoria">
               <div className="nr-cat-div">
-                <span>Nr faqev: {nrFaqes}</span>
-                <span>Category: {category}</span>
+                <span>
+                  <strong>Nr faqev:</strong> {nrFaqes}
+                </span>
+                <span>
+                  <strong>Category:</strong> {category}
+                </span>
               </div>
               <div className="qmimi">
-                <span>Cmimi: {cmimi}</span>
+                <span>
+                  <strong>Cmimi:</strong> {cmimi}
+                </span>
               </div>
             </div>
             <div className="save-stock">
-              <span>Save $1.50</span>
-              <span>{stock} in stock</span>
+              <span>
+                <strong>Save $1.50</strong>
+              </span>
+              <span>
+                <strong> In stock </strong>
+                {stock}
+              </span>
             </div>
-            <span className="available">ISBN: {isbn}</span>
+            <span className="available">
+              <strong>ISBN: </strong>
+              {isbn}
+            </span>
           </div>
 
           <div className="bookButtons">
-            <span>Quantity</span>
-            <Button>Add to basket</Button>
-          </div>
-          <div className="bookButtons">
-            <Button className="button">TEXT</Button>
+            <p>Quantity</p>
             <Button className="button" onClick={wishlist}>
               WISHLIST
             </Button>
@@ -195,6 +206,7 @@ function BookDetails({ props }) {
               <form onSubmit={handleSubmit}>
                 <textarea
                   rows={6}
+                  cols={66}
                   placeholder="Write a review"
                   value={review}
                   onChange={(e) => setReview(e.target.value)}
@@ -213,7 +225,13 @@ function BookDetails({ props }) {
       <section className="reviews-container">
         {reviews?.map((review) => (
           <div className="review" key={review.id}>
-            <p>{review.message}</p>
+            <div className="review-header">
+              <h5>Autori Name</h5>
+              <small>29.02.2020</small>
+            </div>
+            <div className="review-text">
+              <p>{review.message}</p>
+            </div>
           </div>
         ))}
       </section>

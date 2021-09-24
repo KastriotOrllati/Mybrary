@@ -9,11 +9,10 @@ import {
   TableRow,
   Toolbar,
 } from "@material-ui/core";
-
 import useTable from "./useTable";
-
 import AddIcon from "@material-ui/icons/Add";
 import CloseIcon from "@material-ui/icons/Close";
+
 const useStyles = makeStyles((theme) => ({
   pageContent: {
     margin: theme.spacing(5),
@@ -38,6 +37,7 @@ const headCells = [
 
 function AllBooks(props) {
   const classes = useStyles();
+
   const [books, setBooks] = useState([]);
   const [filterFn] = useState({
     fn: (items) => {

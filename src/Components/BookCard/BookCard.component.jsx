@@ -13,17 +13,20 @@ const BookCard = ({ book }) => {
   const { titulli, autori, cmimi, imageSrc } = book;
   const useStyles = makeStyles({
     root: {
-      maxWidth: 180,
-      maxHeight: 345,
+      maxWidth: 210,
+      width: "100%",
+      maxHeight: 420,
+      height: "100%",
       border: "none",
       marginLeft: 20,
       marginRight: 20,
+      marginBottom: 30,
     },
     media: {
-      height: 240,
-      width: 180,
+      height: 280,
+      width: 210,
     },
-    "@media (min-width: 650px)": {
+    "@media (max-width: 650px)": {
       root: {
         maxWidth: "200px",
         maxHeight: "500px",

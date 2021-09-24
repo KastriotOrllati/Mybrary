@@ -38,23 +38,25 @@ export default function Wishlist() {
         wishlist.map((wishlist) => (
           <div className={classes.wishlistItem} key={wishlist.id}>
             <div className={classes.products}>
-              <span className={classes.productImage}>
-                <img
-                  src={`http://localhost:39068/Images/${wishlist.imageName}`}
-                  alt="hello"
-                />
-              </span>
-              <span className={classes.productDetails}>
-                <h2>{wishlist.titulli}</h2>
-                <h3>{wishlist.autori}</h3>
-                <small>{wishlist.category}</small>
-              </span>
+              <div className={classes.productFirst}>
+                <span className={classes.productImage}>
+                  <img
+                    src={`http://localhost:39068/Images/${wishlist.imageName}`}
+                    alt="hello"
+                  />
+                </span>
+                <span className={classes.productDetails}>
+                  <h2>{wishlist.titulli}</h2>
+                  <h3>{wishlist.autori}</h3>
+                  <small>{wishlist.category}</small>
+                </span>
+              </div>
               <div className={classes.productSecond}>
                 <span className={classes.productPrice}>
                   <p>$ {wishlist.cmimi}</p>
                 </span>
                 <span className={classes.productButton}>
-                  <button>ADD TO BASKET</button>
+                  <button>DELETE</button>
                 </span>
                 <span className={classes.productIcon}>
                   <FavoriteIcon className={style.root} />

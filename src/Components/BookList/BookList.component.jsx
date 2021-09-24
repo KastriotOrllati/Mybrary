@@ -37,7 +37,7 @@ function BookList(props) {
       .then((res) => res.json())
       .then((data) => {
         const category = data.filter((book) => book.category === bookCategory);
-        setCategoryBooks(category);
+        setCategoryBooks(category.slice(0, 6));
       })
       .catch((err) => console.log(err));
 
