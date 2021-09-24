@@ -20,11 +20,15 @@ function AddAdmin() {
   //   const [responseData, setResponseData] = useState({});
 
   const handleSubmit = (e) => {
+    let user = JSON.parse(localStorage.getItem("user"));
     e.preventDefault();
     const register = { email, password, username };
-    fetch("http://localhost:39068/api/admin/addRoleToUser", {
+    fetch("http://localhost:39068/api/Admin/AddRoleToUser", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${"Bearer " + user.token}`,
+      },
       body: JSON.stringify(register),
     })
       .then((res) => res.json())
