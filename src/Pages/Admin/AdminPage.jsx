@@ -26,9 +26,6 @@ const AdminPage = () => {
             <Route path="/admin/allbooks">
               <AllBooks />
             </Route>
-            <Route path="/admin/category">
-              <CreateCategory />
-            </Route>
             <Route path="/admin/all-categories">
               <AllCategories />
             </Route>

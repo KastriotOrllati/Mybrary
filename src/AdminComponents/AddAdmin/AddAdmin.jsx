@@ -1,10 +1,19 @@
-import { Button } from "@material-ui/core";
+import { Button, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 
 import TextField from "@material-ui/core/TextField";
 import "../../Components/Register/Register.css";
+import "./AddAdmin.css";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: 20,
+  },
+}));
 
 function AddAdmin() {
+  const classes = useStyles();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -26,10 +35,11 @@ function AddAdmin() {
   };
 
   return (
-    <div className="register">
-      <h3>Register</h3>
-      <form onSubmit={handleSubmit} className="registerForm">
+    <div className="add-admin-container">
+      <h3>Add Admin</h3>
+      <form onSubmit={handleSubmit} className="add-admin-form">
         <TextField
+          className={classes.root}
           type="text"
           id="standard-basic"
           label="Username"
@@ -37,6 +47,7 @@ function AddAdmin() {
           onChange={(e) => setUsername(e.target.value)}
         />
         <TextField
+          className={classes.root}
           type="text"
           id="standard-basic"
           label="Email"
@@ -44,6 +55,7 @@ function AddAdmin() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
+          className={classes.root}
           type="password"
           id="standard-basic"
           label="Password"
