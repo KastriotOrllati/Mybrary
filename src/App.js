@@ -15,6 +15,7 @@ import Footer from "./Components/Footer/Footer";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Wishlist from "./Pages/Wishlist/Wishlist.component";
 import BookView from "./Components/BookView/BookView.component";
+import AllCategoryBooks from "./Components/CategoryBooks/AllCategoryBooks";
 import { authHeader } from "./Utils/authHeader";
 import { getUser } from "./Utils/getUser";
 
@@ -55,6 +56,9 @@ function App() {
           />
           <Route path="/Wishlist">
             <Wishlist />
+          </Route>
+          <Route path="/books/category/:ctgr">
+            <AllCategoryBooks />
           </Route>
         </Switch>
       </Router>
