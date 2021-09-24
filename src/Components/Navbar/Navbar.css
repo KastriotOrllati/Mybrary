@@ -45,6 +45,18 @@
   font-size: 1.2rem;
   padding-top: 10px;
 }
+.signin-div button {
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+  color: white;
+  background-color: steelblue;
+  border: none;
+  border-radius: 5px;
+}
+.signin-div button:hover {
+  background-color: rgb(73, 138, 190);
+}
 
 .signin-div a {
   padding: 10px 10px;
@@ -85,6 +97,9 @@
 .search-div input {
   background-color: rgb(241, 240, 233);
   padding: 1rem;
+}
+.loggedIn-div {
+  padding-right: 20px;
 }
 @media screen and (max-width: 800px) {
   .link-list {

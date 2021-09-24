@@ -1,0 +1,11 @@
+.category-booklist-conatiner {
+  max-width: 100%;
+  overflow: hidden;
+}
+.category-book-detail {
+  width: 100%;
+  overflow: hidden;
+}
+.link {
+  padding: 0;
+}

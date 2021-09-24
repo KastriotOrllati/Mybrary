@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { authHeader } from "../../Utils/authHeader";
-
+import "./CategoryBooks.css";
 import BookCard from "../BookCard/BookCard.component";
 
 export default function CategoryBooks(props) {
@@ -26,11 +26,11 @@ export default function CategoryBooks(props) {
   }, [bookCategory]);
 
   return (
-    <div className="booklist-conatiner">
-      <div className="div-booklist">
+    <div className="category-booklist-conatiner">
+      <div className="category-div-booklist">
         <h1>{bookCategory} Books</h1>
       </div>
-      <ul className="book-detail">
+      <ul className="category-book-detail">
         {categoryBooks.map((book) => (
           <li className="link">
             <Link

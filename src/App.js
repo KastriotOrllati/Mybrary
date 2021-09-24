@@ -19,6 +19,7 @@ import { authHeader } from "./Utils/authHeader";
 import { getUser } from "./Utils/getUser";
 
 import { useEffect, useState } from "react";
+import AllCategoryBooks from "./Components/CategoryBooks/AllCategoryBooks";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -54,6 +55,9 @@ function App() {
           />
           <Route path="/Wishlist">
             <Wishlist />
+          </Route>
+          <Route path="/books/category/:ctgr">
+            <AllCategoryBooks />
           </Route>
         </Switch>
       </Router>
