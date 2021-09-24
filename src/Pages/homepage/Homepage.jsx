@@ -14,7 +14,9 @@ function Homepage(props) {
       <BookList bookCategory="Classic" key={"Classic"} />
       <BookList bookCategory="History" key={"History"} />
       <div className="front-image">
-        <Link className="front-image-link ">SHOP NOW</Link>
+        <a href="http://localhost:3000/book/25" className="front-image-link ">
+          View Book
+        </a>
         <img src={FrontImage} alt="" />
       </div>
       <BookList bookCategory="Bussines" key={"Bussines"} />
