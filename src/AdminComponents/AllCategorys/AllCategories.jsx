@@ -6,15 +6,13 @@ import {
   TableBody,
   TableCell,
   TableRow,
-  Toolbar,
 } from "@material-ui/core";
 
 import useTable from "../AllBooks/useTable";
 
-import AddIcon from "@material-ui/icons/Add";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import CloseIcon from "@material-ui/icons/Close";
-import CreateCategory from "../CreateCategory/CreateCategory";
+import CreateCategory from "./CreateCategory";
 const useStyles = makeStyles((theme) => ({
   pageContent: {
     margin: theme.spacing(5),
@@ -31,9 +29,10 @@ const useStyles = makeStyles((theme) => ({
 
 const headCells = [{ id: "category", label: "Category name" }];
 
-function AllCategories(props) {
+function AllCategories() {
   const classes = useStyles();
   const [category, setCategory] = useState([]);
+
   const [filterFn] = useState({
     fn: (items) => {
       return items;
@@ -65,14 +64,6 @@ function AllCategories(props) {
     <div>
       <CreateCategory />
       <Paper className={classes.pageContent}>
-        <Toolbar>
-          <Button
-            text="Add New"
-            variant="outlined"
-            startIcon={<AddIcon />}
-            className={classes.newButton}
-          />
-        </Toolbar>
         <TblContainer>
           <TblHead />
           <TableBody>

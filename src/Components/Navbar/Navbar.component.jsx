@@ -93,11 +93,17 @@ const Navbar = (props) => {
                 Location
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-links" to="/Wishlist" onClick={handleClick}>
-                <FavoriteIcon />
-              </Link>
-            </li>
+            {login ? (
+              <li className="nav-item">
+                <Link
+                  className="nav-links"
+                  to="/Wishlist"
+                  onClick={handleClick}
+                >
+                  <FavoriteIcon />
+                </Link>
+              </li>
+            ) : null}
           </ul>
         </div>
         <div className="signin-div">

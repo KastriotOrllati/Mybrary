@@ -88,7 +88,6 @@ function AllBooks(props) {
                 <TableCell>{book.category}</TableCell>
                 <TableCell>
                   <Button color="primary">
-                    {/* <EditOutlinedIcon fontSize="small" /> */}
                     <Link to={`/admin/book/edit/${book.id}`}> Edit Book </Link>
                   </Button>
                   <Button

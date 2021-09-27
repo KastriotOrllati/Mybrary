@@ -7,7 +7,6 @@ export default function CreateCategory() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const category = { categories };
     fetch("http://localhost:39068/api/Categories", {
       method: "POST",
@@ -18,7 +17,6 @@ export default function CreateCategory() {
     });
   };
 
-  console.log(categories);
   return (
     <div>
       <h1 className="h1">Create Category</h1>
@@ -27,7 +25,6 @@ export default function CreateCategory() {
           variant="filled"
           size="medium"
           margin="normal"
-          label="add-category"
           name="addCategory"
           onChange={(e) => setCategories(e.target.value)}
         />

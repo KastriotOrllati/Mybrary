@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./AdminPage.css";
 
 import CreateBook from "../../AdminComponents/CreateBook/CreateBook.component";
-import CreateCategory from "../../AdminComponents/CreateCategory/CreateCategory";
 import EditBook from "../../AdminComponents/EditBook/EditBook.component";
 import AllBooks from "../../AdminComponents/AllBooks/AllBooks.component";
 import SideMenu from "./Side-menu/SideMenu";

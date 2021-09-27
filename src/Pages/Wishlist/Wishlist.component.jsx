@@ -66,7 +66,7 @@ export default function Wishlist() {
           </div>
         ))
       ) : (
-        <div>Wishlist some books!</div>
+        <div className={classes.noWishlist}>Wishlist some books!</div>
       )}
     </div>
   );
