@@ -13,6 +13,7 @@ function BookDetails({ props }) {
   const [wishlisted, setWishlisted] = useState(false);
   const [login, setLogin] = useState(false);
   const [review, setReview] = useState("");
+  const [ourReviews, setOurReviews] = useState([]);
 
   let { slug } = useParams();
 
@@ -35,8 +36,9 @@ function BookDetails({ props }) {
       setLogin(true);
     }
     console.log("this is runnin");
+    setOurReviews(reviews);
   }, [login]);
-
+  console.log("outReviews", ourReviews);
   const handleSubmit = (e) => {
     e.preventDefault();
     let user = JSON.parse(localStorage.getItem("user"));
@@ -66,6 +68,21 @@ function BookDetails({ props }) {
         console.log(err);
       };
     }
+  };
+
+  console.log("reviews", props.reviews);
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:39068/api/Libra/DeleteReview/${id}`, {
+      method: "DELETE",
+    }).catch((err) => {
+      console.log(err);
+    });
+
+    console.log("id", id);
+    // ourReviews.filter((id) => reviews.id !== id);
+    setOurReviews(ourReviews.filter((r) => r.id !== id));
+    console.log("Review after delete", reviews);
   };
 
   const wishlist = (e) => {
@@ -223,7 +240,7 @@ function BookDetails({ props }) {
         <h3>Reviews</h3>
       </span>
       <section className="reviews-container">
-        {reviews?.map((review) => (
+        {ourReviews?.map((review) => (
           <div className="review" key={review.id}>
             <div className="review-header">
               <h5>Autori Name</h5>
@@ -232,6 +249,7 @@ function BookDetails({ props }) {
             <div className="review-text">
               <p>{review.message}</p>
             </div>
+            <div onClick={() => handleDelete(review.id)}>X</div>
           </div>
         ))}
       </section>
